@@ -13,11 +13,19 @@ console.log(b); //Giá trị của b = 6
 ```
 #### 2. Reference Type
 Kiểu dữ liệu tham chiếu có tính chất động và không có kích thước cố định. Trong Javascript có các kiểu dữ liệu tham chiếu như: object, array, function,... và hầu hết được coi là đối tượng do đó có các phương thức. Khi khai báo một biến tham chiếu và gán giá trị đối tượng cho nó trong Javascript thì máy tính sẽ lưu giá trị đối tượng của biến trên một vùng nhớ Heap và con trỏ được lưu trên Stack. Con trỏ được xác định bằng tên đã khai báo trong chương trình và nó dùng để trỏ đến giá trị đối tượng được lưu trên Heap. Do đó khi gán giá trị đối tượng của biến này cho biến khác thì khi biến khác thay đổi giá trị thuộc tính của đối tượng được lưu trên Heap thì cũng sẽ ảnh hưởng đến kết quả giá trị của biến trước đó. Tuy nhiên khi gán giá trị đối tượng của biến này cho biến khác thì khi biến khác được gán giá trị đối tượng khác thì sẽ không ảnh hưởng đến kết quả giá trị của biến trước đó.<br>
-Ví dụ:
+Ví dụ: Thay đổi giá trị thuộc tính.
 ```
 let arr1 = ['a', 'b']
 let arr2 = arr1
 arr2[0] = 'c';
 console.log(arr1) // ['a', 'c']
 console.log(arr2) // ['a', 'c']
+```
+Ví dụ: Thay đổi giá trị đối tượng.
+```
+let arr1 = ['a', 'b']
+let arr2 = arr1
+arr2 = ['c', 'd'];
+console.log(arr1) // ['a', 'c']
+console.log(arr2) // ['c', 'd']
 ```
