@@ -86,9 +86,18 @@ Map (còn được gọi là dictionary, associative array, hash map) là một 
   - Độ phức tạp: Việc triển khai và bảo trì map có thể phức tạp, đặc biệt nếu chúng được sử dụng trong các ứng dụng phức tạp.
 #### 4. Set
 ##### 1. What is Set?
+Set là cấu trúc dữ liệu dùng để lưu trữ một tập hợp các phần tử riêng biệt, được sử dụng để lưu trữ và thao tác một nhóm các phần tử và trong đó mỗi phần tử trong tập dữ liệu là duy nhất và không trùng lặp.
 ##### 2. Why is Set used?
+Cấu trúc dữ liệu Set thường được sử dụng trong nhiều ứng dụng khoa học máy tính, bao gồm thuật toán, phân tích dữ liệu và cơ sở dữ liệu. Ưu điểm chính của việc sử dụng cấu trúc dữ liệu Set là nó cho phép thực hiện các thao tác trên một tập hợp các phần tử một cách hiệu quả và có tổ chức. Ngoài ra Set có thể được dùng để tìm kiếm liên kết, điểm chung, sự khác biệt giữa hai bộ dữ liệu.
 ##### 3. What are the advantage and disadvantage of Set?
 - Advantages:
-  - 
+  - Set được sử dụng để lưu trữ các giá trị duy nhất nhằm tránh trùng lặp các phần tử.
+  - Set là cấu trúc dữ liệu động nên sẽ không có lỗi tràn dữ liệu.
+  - Tìm kiếm có độ phức tạp thấp O(log(N)).
+  - Kiểm tra một phần tử có trong tập hợp một cách nhanh chóng hiệu quả.
+  - Set được sử dụng để cải thiện hiệu suất trong nhiều thuật toán bằng cách cung cấp khả năng tra cứu nhanh.
 - Disadvantages:
-  - a
+  - Các phần tử trong một tập hợp chỉ có thể được truy cập bằng con trỏ và không có chỉ mục.
+  - Set rất phức tạp để thực hiện vì cấu trúc và thuộc tính của nó.
+  - Các thao tác cơ bản như thêm và xóa phần tử có độ phức tạp cao O(log(N)).
+  - Set có thể sử dụng nhiều bộ nhớ hơn các cấu trúc dữ liệu khác, vì chúng lưu trữ từng phần tử ở một vị trí riêng biệt.
