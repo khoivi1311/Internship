@@ -38,3 +38,36 @@ int* pt = &a;
 ```
 #### 4. Why do newer programming languages omit pointers?
 Các ngôn ngữ lập trình bậc cao không có con trỏ vì nó khó hiểu, phức tạp, khó sử dụng đúng cách và dễ xảy ra lỗi do đó nó có thể dẫn đến các lỗi và sự cố khó khắc phục. Một trong những lý do để các ngôn ngữ lập trình bậc cao không dùng con trỏ là truy cập trực tiếp vào các vị trí bộ nhớ, vị trí này có thể bị mã độc tấn công khai thác truy cập dữ liệu do đó có thể gây ra các lỗ hổng bảo mật. Ngoài ra nó yêu cầu thêm bộ nhớ và thời gian xử lý để quản lý và theo dõi vị trí của dữ liệu trong bộ nhớ do đó có thể làm cho các chương trình sử dụng con trỏ chậm hơn và kém hiệu quả hơn trong việc truy cập và thao tác dữ liệu.
+### Data structures
+#### 1. Array
+##### 1. What is array?
+##### 2. Why is array used?
+##### 3. What are the advantage and disadvantage of an array?
+- Advantages:
+  - 
+- Disadvantages:
+  - a
+#### 2. Linked List
+##### 1. What is Linked List?
+##### 2. Why is Linked List used?
+##### 3. What are the advantage and disadvantage of Linked List?
+- Advantages:
+  - 
+- Disadvantages:
+  - a
+#### 3. Map
+##### 1. What is Map?
+##### 2. Why is Map used?
+##### 3. What are the advantage and disadvantage of Map?
+- Advantages:
+  - 
+- Disadvantages:
+  - a
+#### 4. Set
+##### 1. What is Set?
+##### 2. Why is Set used?
+##### 3. What are the advantage and disadvantage of Set?
+- Advantages:
+  - 
+- Disadvantages:
+  - a
