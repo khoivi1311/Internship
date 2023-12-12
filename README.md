@@ -162,14 +162,7 @@ Cấu trúc dữ liệu Set thường được sử dụng trong nhiều ứng d
 - Ý tưởng thuật toán:
   - Bước 1: Đầu tiên xác định vị trí giữa mảng bằng cách (cuối + đầu) / 2.
   - Bước 2: Sau đó so sánh giá trị cần tìm với giá trị của phần tử vị trí ở giữa nếu lớn hơn vị trí ở giữa thì tìm sang phải còn nếu nhỏ hơn vị trí ở giữa thì tìm sang trái và nếu bằng vị trí ở giữa thì trả về vị trí đó thoát vòng lặp.
-  - Bước 3: Nếu chưa tìm thấy vị trí cần tìm tiếp tục lặp lại từ bước 1 cho đến khi hết dãy. Nếu không tìm thấy trả về -1. 
-##### 3. Interpolation Search
-
-##### 4. Jump Search
-- Thuật toán tìm kiếm nhảy là gì? Tìm kiếm nhảy là một thuật toán tìm kiếm các mảng được sắp xếp. Ý tưởng cơ bản là kiểm tra ít phần tử hơn bằng cách nhảy lên trước bằng các bước cố định hoặc bỏ qua một số phần tử thay vì tìm kiếm tất cả các phần tử.
-- Độ phức tạp thuật toán:
-  - Trường hợp tốt: O(1)
-  - Trung bình: O(sqrt(n))
+  - Bước 3: Nếu chưa tìm thấy vị trí cần tìm tiếp tục lặp lại từ bước 1 cho đến khi hết dãy. Nếu không tìm thấy trả về -1.
   - Trường hợp xấu: O(sqrt(n))
 - Ý tưởng thuật toán:
   - Đầu tiên xác định bước nhảy bằng cách lấy sqrt(arr.length).
