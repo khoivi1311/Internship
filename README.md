@@ -58,12 +58,20 @@ Mảng được sử dụng để lưu trữ một lượng lớn các phần t�
   - Dung lượng bị lãng phí: Nếu một mảng không sử dụng hết kích thước đã cấp phát, sẽ gây ra lãng phí không gian lưu trữ trong bộ nhớ được cấp phát cho mảng đó.
 #### 2. Linked List
 ##### 1. What is Linked List?
+Danh sách liên kết là một cấu trúc dữ liệu tuyến tính, trong đó các phần tử không được lưu trữ ở một vị trí liền kề mà chúng được liên kết bằng con trỏ. Danh sách liên kết tạo thành một chuỗi các nút được kết nối, trong đó mỗi nút lưu trữ dữ liệu và địa chỉ của nút tiếp theo.
 ##### 2. Why is Linked List used?
+- Cấu trúc dữ liệu động: Kích thước của bộ nhớ có thể được cấp phát hoặc thu hồi trong thời gian chạy dựa trên thao tác thêm hoặc xóa.
+- Dễ dàng thêm/xóa: Việc thêm và xóa các phần tử đơn giản hơn mảng vì không cần thay đổi vị trí phần tử nào sau khi thêm và xóa, chỉ cần cập nhật địa chỉ.
+- Sử dụng bộ nhớ hiệu quả: Danh sách liên kết là một cấu trúc dữ liệu động, kích thước tăng hoặc giảm theo yêu cầu để tránh lãng phí bộ nhớ. 
+- Triển khai: Các cấu trúc dữ liệu nâng cao có thể được triển khai bằng cách sử dụng danh sách liên kết như: Stack, Queue, HashTable.
 ##### 3. What are the advantage and disadvantage of Linked List?
 - Advantages:
-  - 
+  - Kích thước động: Danh sách liên kết có thể tăng hoặc giảm linh hoạt vì việc cấp phát bộ nhớ được thực hiện trong thời gian chạy.
+  - Thêm và xóa: Việc thêm hoặc xóa các phần tử khỏi danh sách liên kết rất hiệu quả, đặc biệt đối với các danh sách lớn.
+  - Tính linh hoạt: Danh sách liên kết có thể dễ dàng sắp xếp lại và sửa đổi mà không yêu cầu khối bộ nhớ liền kề.
 - Disadvantages:
-  - a
+  - Truy cập ngẫu nhiên: Danh sách liên kết không cho phép truy cập trực tiếp vào các phần tử theo chỉ mục. Để truy cập một phần tử cụ thể phải đi từ đầu danh sách và duyệt cho tới khi đến được nút cần truy cập.
+  - Bộ nhớ bổ sung: Danh sách liên kết yêu cầu bộ nhớ bổ sung để lưu trữ con trỏ.
 #### 3. Map
 ##### 1. What is Map?
 ##### 2. Why is Map used?
