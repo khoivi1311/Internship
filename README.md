@@ -127,3 +127,9 @@ Cấu trúc dữ liệu Set thường được sử dụng trong nhiều ứng d
 | Các phần tử được truy cập bằng chỉ mục | Các phần tử được truy cập bằng bảng băm |
 ### Algorithms
 #### 1. Algorithm complexity
+##### 1. What is time complexity so important?
+Độ phức tạp thời gian quan trọng là vì trong bất kỳ chương trình nào thực thi thì độ phức tạp thời gian là số lần thực thi các câu lệnh phụ thuộc vào giá trị đầu vào. Để tối ưu hóa chương trình thì chúng ta cần quan tâm đến việc làm giảm số câu lệnh được thực thi khi dữ liệu đầu vào vô cùng lớn. 
+##### 2. What is algorithm complexity?
+Độ phức tạp của thuật toán là hàm mô tả hiệu quả của thuật toán xét về lượng dữ liệu mà nó phải xử lý. Có hai thước đo độ phức tạp cơ bản về hiệu quả của thuật toán: <br>
+Độ phức tạp về thời gian là một hàm mô tả số lần thực hiện các câu lệnh của một thuật toán tính theo số lượng đầu vào mà nó nhận được.<br>
+Độ phức tạp của không gian là một hàm mô tả lượng bộ nhớ (không gian) mà thuật toán yêu cầu đối với số lượng đầu vào của phương thức.
