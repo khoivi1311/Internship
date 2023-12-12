@@ -121,6 +121,9 @@ Cấu trúc dữ liệu Set thường được sử dụng trong nhiều ứng d
 ##### 6. What's the difference between Array and Set?
 | Array    | Set     |
 | -------- | ------- |
-|  |  |
-|  |  |
-|  |  |
+| Thu thập dữ liệu tuần tự | Tập hợp của các giá trị duy nhất |
+| Được phép trùng lặp | Không được phép trùng lặp |
+| Tìm kiếm tương đối chậm | Truy cập các phần tử nhanh hơn |
+| Các phần tử được truy cập bằng chỉ mục | Các phần tử được truy cập bằng bảng băm |
+### Algorithms
+#### 1. Algorithm complexity
