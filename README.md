@@ -41,12 +41,21 @@ Các ngôn ngữ lập trình bậc cao không có con trỏ vì nó khó hiểu
 ### Data structures
 #### 1. Array
 ##### 1. What is array?
+Mảng là tập hợp các phần tử có cùng kiểu dữ liệu được lưu trữ tại các vị trí vùng nhớ liền kề. Vị trí của các phần tử trong mảng được đánh số liên tục từ 0...n.
 ##### 2. Why is array used?
+Mảng sử dụng để lưu trữ 
 ##### 3. What are the advantage and disadvantage of an array?
 - Advantages:
-  - 
+  - Truy cập hiệu quả vào các phần tử: Mảng cấp quyền truy cập trực tiếp vào phần tử ở vị trí bất kỳ trong mảng. Thời gian truy cập vào một phần tử là không đổi và không phụ thuộc vào kích thước của mảng.
+  - Truy xuất dữ liệu nhanh: Mảng cho phép truy xuất dữ liệu nhanh vì dữ liệu được lưu trữ ở các vị trí bộ nhớ liền kề.
+  - Hiệu quả bộ nhớ: Các phần tử của mảng được lưu trữ ở các vị trí bộ nhớ liền kề nên kích thước của mảng được biết tại thời điểm biên dịch và điều này có nghĩa là bộ nhớ có thể được cấp phát cho toàn bộ mảng trong một khối, giảm sự phân mảnh bộ nhớ.
+  - Tính linh hoạt: Mảng có thể được sử dụng để lưu trữ nhiều loại dữ liệu, bao gồm số nguyên, số dấu phẩy động, ký tự và thậm chí cả các cấu trúc dữ liệu phức tạp như đối tượng và con trỏ.
+  - Dễ thực hiện: Mảng rất dễ thực hiện và dễ hiểu.
 - Disadvantages:
-  - a
+  - Kích thước cố định: Mảng có kích thước cố định được xác định tại thời điểm tạo do đó khi cần thay đổi kích thước mảng sẽ gặp khó khăn.
+  - Vấn đề cấp phát bộ nhớ: Việc cấp phát một mảng lớn có thể gặp khó khăn khi các hệ thống có bộ nhớ hạn chế. Nếu kích thước của mảng quá lớn, hệ thống có thể hết bộ nhớ, điều này có thể khiến chương trình bị lỗi.
+  - Các vấn đề thêm và xóa: Việc thêm hoặc xóa một phần tử khỏi một mảng có thể sẽ khiến tất cả các phần tử sau điểm thêm hoặc xóa phải được dịch chuyển để phù hợp với thay đổi.
+  - Dung lượng bị lãng phí: Nếu một mảng không sử dụng hết kích thước đã cấp phát, sẽ gây ra lãng phí không gian lưu trữ trong bộ nhớ được cấp phát cho mảng đó.
 #### 2. Linked List
 ##### 1. What is Linked List?
 ##### 2. Why is Linked List used?
