@@ -142,3 +142,15 @@ Cấu trúc dữ liệu Set thường được sử dụng trong nhiều ứng d
   - Bước 1: Chọn một phần tử trong mảng làm pivot (phần tử chốt). Thông thường sẽ lựa chọn phần tử cuối trong mảng làm pivot.
   - Bước 2: Tìm và chuyển hết các phần tử nhỏ hơn pivot sang trái và chuyển các phần tử lớn hơn pivot sang phải.
   - Bước 3: Sau đó sẽ lặp lại từ bước 1 cho từng bên trái và phải cho đến khi các phần tử được sắp xếp theo đúng thứ tự.
+#### 3. Search
+##### 4. Linear Search
+- Thuật toán tìm kiếm tuyến tính là gì?
+Thuật toán tìm kiếm tuyến tính là phương pháp tìm kiếm một phần tử cho trước trong một danh sách bằng cách duyệt lần lượt từng phần từ của danh sách đó đến khi nào tìm được giá trị mong muốn hay đã duyệt hết qua hết danh sách.
+- Độ phức tạp thuật toán:
+  - Trường hợp tốt: O(1)
+  - Trung bình: O(n)
+  - Trường hợp xấu: O(n)
+- Ý tưởng thuật toán:
+  - Đầu tiên duyệt mảng từ đầu đến cuối và so sánh với phần tử cần tìm.
+  - Nếu tìm thấy thì trả về vị trí của phần tử trong mảng.
+  - Nếu không tìm thấy sẽ trả về giá trị -1.
