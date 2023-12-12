@@ -143,9 +143,8 @@ Cấu trúc dữ liệu Set thường được sử dụng trong nhiều ứng d
   - Bước 2: Tìm và chuyển hết các phần tử nhỏ hơn pivot sang trái và chuyển các phần tử lớn hơn pivot sang phải.
   - Bước 3: Sau đó sẽ lặp lại từ bước 1 cho từng bên trái và phải cho đến khi các phần tử được sắp xếp theo đúng thứ tự.
 #### 3. Search
-##### 4. Linear Search
-- Thuật toán tìm kiếm tuyến tính là gì?
-Thuật toán tìm kiếm tuyến tính là phương pháp tìm kiếm một phần tử cho trước trong một danh sách bằng cách duyệt lần lượt từng phần từ của danh sách đó đến khi nào tìm được giá trị mong muốn hay đã duyệt hết qua hết danh sách.
+##### 1. Linear Search
+- Thuật toán tìm kiếm tuyến tính là gì? Thuật toán tìm kiếm tuyến tính là phương pháp tìm kiếm một phần tử cho trước trong một danh sách bằng cách duyệt lần lượt từng phần từ của danh sách đó đến khi nào tìm được giá trị mong muốn hay đã duyệt hết qua hết danh sách.
 - Độ phức tạp thuật toán:
   - Trường hợp tốt: O(1)
   - Trung bình: O(n)
@@ -153,4 +152,27 @@ Thuật toán tìm kiếm tuyến tính là phương pháp tìm kiếm một ph�
 - Ý tưởng thuật toán:
   - Đầu tiên duyệt mảng từ đầu đến cuối và so sánh với phần tử cần tìm.
   - Nếu tìm thấy thì trả về vị trí của phần tử trong mảng.
+  - Nếu không tìm thấy sẽ trả về giá trị -1.
+##### 2. Binary Search
+- Thuật toán tìm kiếm nhị phân là gì? Thụât toán tìm kiếm nhị phân thực hiện tìm kiếm một mảng đã sắp xếp bằng cách liên tục chia các khoảng tìm kiếm thành 1 nửa. Bắt đầu với một khoảng từ phần tử đầu mảng, tới cuối mảng. Nếu giá trị của phần tử cần tìm nhỏ hơn giá trị của phần từ nằm ở giữa khoảng thì thu hẹp phạm vi tìm kiếm từ đầu mảng tới giữa mảng và nguợc lại. Cứ thế tiếp tục chia phạm vi thành các nửa cho dến khi tìm thấy hoặc đã duyệt 
+- Độ phức tạp thuật toán:
+  - Trường hợp tốt: O(1)
+  - Trung bình: O(log(n))
+  - Trường hợp xấu: O(log(n))
+- Ý tưởng thuật toán:
+  - Bước 1: Đầu tiên xác định vị trí giữa mảng bằng cách (cuối + đầu) / 2.
+  - Bước 2: Sau đó so sánh giá trị cần tìm với giá trị của phần tử vị trí ở giữa nếu lớn hơn vị trí ở giữa thì tìm sang phải còn nếu nhỏ hơn vị trí ở giữa thì tìm sang trái và nếu bằng vị trí ở giữa thì trả về vị trí đó thoát vòng lặp.
+  - Bước 3: Nếu chưa tìm thấy vị trí cần tìm tiếp tục lặp lại từ bước 1 cho đến khi hết dãy. Nếu không tìm thấy trả về -1. 
+##### 3. Interpolation Search
+
+##### 4. Jump Search
+- Thuật toán tìm kiếm nhảy là gì? Tìm kiếm nhảy là một thuật toán tìm kiếm các mảng được sắp xếp. Ý tưởng cơ bản là kiểm tra ít phần tử hơn bằng cách nhảy lên trước bằng các bước cố định hoặc bỏ qua một số phần tử thay vì tìm kiếm tất cả các phần tử.
+- Độ phức tạp thuật toán:
+  - Trường hợp tốt: O(1)
+  - Trung bình: O(sqrt(n))
+  - Trường hợp xấu: O(sqrt(n))
+- Ý tưởng thuật toán:
+  - Đầu tiên xác định bước nhảy bằng cách lấy sqrt(arr.length).
+  - Sau đó thực hiện nhảy với số bước nhảy xác định trước và so sánh giá trị vị trí nhảy đến có bằng với giá trị cần tìm.
+  - Nếu giá trị cần tìm.
   - Nếu không tìm thấy sẽ trả về giá trị -1.
