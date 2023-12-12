@@ -43,7 +43,7 @@ Các ngôn ngữ lập trình bậc cao không có con trỏ vì nó khó hiểu
 ##### 1. What is array?
 Mảng là tập hợp các phần tử có cùng kiểu dữ liệu được lưu trữ tại các vị trí vùng nhớ liền kề. Vị trí của các phần tử trong mảng được đánh số liên tục từ 0...n.
 ##### 2. Why is array used?
-Mảng sử dụng để lưu trữ 
+Mảng được sử dụng để lưu trữ một lượng lớn các phần tử có cùng kiểu dữ liệu, để lưu trữ và truy xuất dữ liệu theo một thứ tự cụ thể, để sắp xếp dữ liệu theo thứ tự tăng dần hoặc giảm dần, để biểu diễn ma trận trong các phép tính toán học như nhân ma trận, đại số tuyến tính và xử lý ảnh. 
 ##### 3. What are the advantage and disadvantage of an array?
 - Advantages:
   - Truy cập hiệu quả vào các phần tử: Mảng cấp quyền truy cập trực tiếp vào phần tử ở vị trí bất kỳ trong mảng. Thời gian truy cập vào một phần tử là không đổi và không phụ thuộc vào kích thước của mảng.
