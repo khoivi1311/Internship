@@ -133,3 +133,12 @@ Cấu trúc dữ liệu Set thường được sử dụng trong nhiều ứng d
 Độ phức tạp của thuật toán là hàm mô tả hiệu quả của thuật toán xét về lượng dữ liệu mà nó phải xử lý. Có hai thước đo độ phức tạp cơ bản về hiệu quả của thuật toán: <br>
 Độ phức tạp về thời gian là một hàm mô tả số lần thực hiện các câu lệnh của một thuật toán tính theo số lượng đầu vào mà nó nhận được.<br>
 Độ phức tạp của không gian là một hàm mô tả lượng bộ nhớ (không gian) mà thuật toán yêu cầu đối với số lượng đầu vào của phương thức.
+#### 2. Quick Sort
+- Độ phức tạp thuật toán:
+  - Trường hợp tốt: O(nlog(n))
+  - Trung bình: O(nlog(n))
+  - Trường hợp xấu: O(n^2)
+- Cách hoạt động:
+  - Bước 1: Chọn một phần tử trong mảng làm pivot (phần tử chốt). Thông thường sẽ lựa chọn phần tử đầu hoặc cuối trong mảng làm pivot.
+  - Bước 2: Tìm và chuyển hết các phần tử nhỏ hơn pivot sang trái và chuyển các phần tử lớn hơn pivot sang phải.
+  - Bước 3: Sau đó sẽ lặp lại từ bước 1 cho từng bên trái và phải cho đến khi các phần tử được sắp xếp theo đúng thứ tự.
