@@ -163,9 +163,3 @@ Cấu trúc dữ liệu Set thường được sử dụng trong nhiều ứng d
   - Bước 1: Đầu tiên xác định vị trí giữa mảng bằng cách (cuối + đầu) / 2.
   - Bước 2: Sau đó so sánh giá trị cần tìm với giá trị của phần tử vị trí ở giữa nếu lớn hơn vị trí ở giữa thì tìm sang phải còn nếu nhỏ hơn vị trí ở giữa thì tìm sang trái và nếu bằng vị trí ở giữa thì trả về vị trí đó thoát vòng lặp.
   - Bước 3: Nếu chưa tìm thấy vị trí cần tìm tiếp tục lặp lại từ bước 1 cho đến khi hết dãy. Nếu không tìm thấy trả về -1.
-  - Trường hợp xấu: O(sqrt(n))
-- Ý tưởng thuật toán:
-  - Đầu tiên xác định bước nhảy bằng cách lấy sqrt(arr.length).
-  - Sau đó thực hiện nhảy với số bước nhảy xác định trước và so sánh giá trị vị trí nhảy đến có bằng với giá trị cần tìm.
-  - Nếu giá trị cần tìm.
-  - Nếu không tìm thấy sẽ trả về giá trị -1.
