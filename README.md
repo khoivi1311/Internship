@@ -74,12 +74,16 @@ Danh sách liên kết là một cấu trúc dữ liệu tuyến tính, trong đ
   - Bộ nhớ bổ sung: Danh sách liên kết yêu cầu bộ nhớ bổ sung để lưu trữ con trỏ.
 #### 3. Map
 ##### 1. What is Map?
+Map (còn được gọi là dictionary, associative array, hash map) là một cấu trúc dữ liệu lưu trữ một tập hợp các cặp khóa-giá trị, trong đó mỗi khóa được liên kết với một giá trị duy nhất. Trong đó Map cho phép lưu trữ và truy xuất dữ liệu một cách hiệu quả dựa trên mã định danh duy nhất (key).
 ##### 2. Why is Map used?
 ##### 3. What are the advantage and disadvantage of Map?
 - Advantages:
-  - 
+  - Truy cập dữ liệu nhanh: Map cho phép truy xuất các giá trị cụ thể một cách nhanh chóng và hiệu quả, ngay cả khi tập dữ liệu rất lớn.
+  - Tính linh hoạt:  Map có thể lưu trữ bất kỳ loại dữ liệu nào, bao gồm chuỗi, số và đối tượng. Điều này làm cho chúng rất linh hoạt và hữu ích cho nhiều ứng dụng.
 - Disadvantages:
-  - a
+  - Sử dụng bộ nhớ: Map có thể tốn nhiều bộ nhớ, đặc biệt nếu tập dữ liệu rất lớn. Đây là một vấn đề trên các hệ thống có bộ nhớ hạn chế.
+  - Xung đột băm: Nếu hàm băm được map sử dụng tạo ra nhiều xung đột, nó có thể làm chậm hoạt động của Map và giảm hiệu quả.
+  - Độ phức tạp: Việc triển khai và bảo trì map có thể phức tạp, đặc biệt nếu chúng được sử dụng trong các ứng dụng phức tạp.
 #### 4. Set
 ##### 1. What is Set?
 ##### 2. Why is Set used?
