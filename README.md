@@ -139,6 +139,6 @@ Cấu trúc dữ liệu Set thường được sử dụng trong nhiều ứng d
   - Trung bình: O(nlog(n))
   - Trường hợp xấu: O(n^2)
 - Cách hoạt động:
-  - Bước 1: Chọn một phần tử trong mảng làm pivot (phần tử chốt). Thông thường sẽ lựa chọn phần tử đầu hoặc cuối trong mảng làm pivot.
+  - Bước 1: Chọn một phần tử trong mảng làm pivot (phần tử chốt). Thông thường sẽ lựa chọn phần tử cuối trong mảng làm pivot.
   - Bước 2: Tìm và chuyển hết các phần tử nhỏ hơn pivot sang trái và chuyển các phần tử lớn hơn pivot sang phải.
   - Bước 3: Sau đó sẽ lặp lại từ bước 1 cho từng bên trái và phải cho đến khi các phần tử được sắp xếp theo đúng thứ tự.
