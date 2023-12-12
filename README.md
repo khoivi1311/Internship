@@ -101,3 +101,12 @@ Cấu trúc dữ liệu Set thường được sử dụng trong nhiều ứng d
   - Set rất phức tạp để thực hiện vì cấu trúc và thuộc tính của nó.
   - Các thao tác cơ bản như thêm và xóa phần tử có độ phức tạp cao O(log(N)).
   - Set có thể sử dụng nhiều bộ nhớ hơn các cấu trúc dữ liệu khác, vì chúng lưu trữ từng phần tử ở một vị trí riêng biệt.
+##### 4. What's the difference between Array and Linked List?
+| Array    | Linked List |
+| -------- | ------- |
+| Mảng được lưu trữ tại các vị trí vùng nhớ liền kề | Linked List không được lưu ở các vị trí vùng nhớ liền kề |
+| Kích thước cố định | Kích thước động |
+| Cấp phát bộ nhớ trong lúc biên dịch | Cấp phát bộ nhớ trong lúc thực thi |
+| Chiếm ít bộ nhớ hơn | Chiếm nhiều bộ nhớ hơn do phải lưu thêm địa chỉ của nút tiếp theo |
+| Truy cập vào vị trí phần tử bất kỳ dễ dàng | Truy cập vào vị trí phần tử bất kì cần phải duyệt từ đầu danh sách cho đến vị trí cần truy cập |
+| Thêm và Xóa phần tử phức tạp | Thêm và Xóa phần tử dễ dàng |
