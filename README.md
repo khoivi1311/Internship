@@ -104,9 +104,23 @@ Cấu trúc dữ liệu Set thường được sử dụng trong nhiều ứng d
 ##### 4. What's the difference between Array and Linked List?
 | Array    | Linked List |
 | -------- | ------- |
-| Mảng được lưu trữ tại các vị trí vùng nhớ liền kề | Linked List không được lưu ở các vị trí vùng nhớ liền kề |
+| Được lưu trữ tại các vị trí vùng nhớ liền kề | Không được lưu ở các vị trí vùng nhớ liền kề |
 | Kích thước cố định | Kích thước động |
 | Cấp phát bộ nhớ trong lúc biên dịch | Cấp phát bộ nhớ trong lúc thực thi |
 | Chiếm ít bộ nhớ hơn | Chiếm nhiều bộ nhớ hơn do phải lưu thêm địa chỉ của nút tiếp theo |
 | Truy cập vào vị trí phần tử bất kỳ dễ dàng | Truy cập vào vị trí phần tử bất kì cần phải duyệt từ đầu danh sách cho đến vị trí cần truy cập |
 | Thêm và Xóa phần tử phức tạp | Thêm và Xóa phần tử dễ dàng |
+##### 5. What's the difference between Array and Map?
+| Array    | Map     |
+| -------- | ------- |
+| Tập hợp các phần tử có cùng kiểu dữ liệu | Cấu trúc băm của các cặp khóa và giá trị |
+| Các chỉ số là các số nguyên bắt đầu từ 0 | Các khóa có thể thuộc bất kỳ loại dữ liệu nào |
+| Các phần tử được truy cập thông qua các chỉ mục | Các phần tử được truy cập thông qua Key-Value |
+| Thứ tự của các phần tử được nhập được duy trì | Không đảm bảo việc duy trì trật tự |
+| Kích thước của mảng được chỉ định trong quá trình khai báo mảng | Kích thước của Map là động. |
+##### 6. What's the difference between Array and Set?
+| Array    | Set     |
+| -------- | ------- |
+|  |  |
+|  |  |
+|  |  |
