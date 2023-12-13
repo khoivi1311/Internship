@@ -164,3 +164,20 @@ Cấu trúc dữ liệu Set thường được sử dụng trong nhiều ứng d
   - Bước 1: Đầu tiên xác định vị trí giữa mảng bằng cách (cuối + đầu) / 2.
   - Bước 2: Sau đó so sánh giá trị cần tìm với giá trị của phần tử vị trí ở giữa nếu lớn hơn vị trí ở giữa thì tìm sang phải còn nếu nhỏ hơn vị trí ở giữa thì tìm sang trái và nếu bằng vị trí ở giữa thì trả về vị trí đó thoát vòng lặp.
   - Bước 3: Nếu chưa tìm thấy vị trí cần tìm tiếp tục lặp lại từ bước 1 cho đến khi hết dãy. Nếu không tìm thấy trả về -1.
+# Programming
+#### 1. Compiler
+##### 1. What is compiler?
+Trình biên dịch (Compiler) là phần mềm chuyển đổi chương trình được viết bằng ngôn ngữ cấp cao (Source Code) sang ngôn ngữ cấp thấp (Object Code). Nó lấy chương trình được viết bằng ngôn ngữ lập trình cấp cao làm đầu vào và dịch nó thành một chương trình tương đương bằng các ngôn ngữ cấp thấp như ngôn ngữ máy hoặc hợp ngữ. Quá trình dịch mã nguồn sang mã máy bao gồm nhiều giai đoạn, bao gồm phân tích từ vựng, phân tích cú pháp, phân tích ngữ nghĩa, tạo mã và tối ưu hóa. Trình biên dịch xác minh tất cả các loại giới hạn, phạm vi, lỗi,... Trình biên dịch chạy trên cùng một máy và tạo mã máy cho cùng một máy mà nó đang chạy. Trình biên dịch có thể chạy trên một máy và tạo mã máy cho máy tính khác, trong trường hợp đó nó được gọi là trình biên dịch chéo.
+##### 2. Why is compiler needed?
+- Trình biên dịch dùng dể dịch các ngôn ngữ lập trình bậc cao thành mã máy để máy có thể hiểu và thực thi. Nếu không biên dịch thì không có chương trình nào được viết bằng ngôn ngữ cấp cao có thể được thực thi.
+- Hiệu quả: Các chương trình được biên dịch thường hiệu quả hơn các chương trình được thông dịch vì mã máy do trình biên dịch tạo ra được tối ưu hóa cho nền tảng phần cứng cụ thể mà nó sẽ chạy trên đó.
+- Tính di động: Sau khi chương trình được biên dịch, mã máy thu được có thể chạy trên bất kỳ máy tính hoặc thiết bị nào có phần cứng và hệ điều hành phù hợp, khiến nó có tính di động cao.
+- Kiểm tra lỗi: Trình biên dịch thực hiện kiểm tra lỗi toàn diện trong quá trình biên dịch, điều này có thể giúp phát hiện các lỗi cú pháp, ngữ nghĩa và logic trong mã trước khi chạy.
+- Tối ưu hóa: Trình biên dịch có thể thực hiện nhiều tối ưu hóa khác nhau cho mã máy được tạo, chẳng hạn như loại bỏ các code dư thừa hoặc sắp xếp lại code để có hiệu suất tốt hơn.
+#### 2. What is the thread?
+Một thread là đơn vị thực thi nhỏ nhất có thể được quản lý bởi hệ điều hành. Process là một nhóm các thread có liên kết, thực thi cùng nhau trên cùng một môi trường và cùng chia sẻ tài nguyên trên đó với nhau. Nghĩa là các thread trong cùng một process chia sẻ với nhau cùng một memory space và có thể giao tiếp trực tiếp với nhau. Mỗi luồng sẽ thường có bộ đếm chương trình (program counter), ngăn xếp và biến cục bộ của riêng nó. Một thread không thể tồn tại bên ngoài một process. Ngoài ra, mỗi một thread chỉ có thể tồn tại trong một process. Một thread còn có thể coi là một light-weight processes. Một single-threaded process là một process chỉ tồn tại duy nhất một thread, một multi-threaded process là một process có thể tồn tại một hoặc nhiều thread. Thread được sử dụng chủ yếu để cải thiện ứng dụng thông qua việc tính toán song song (parallelism). Trên thực tế chỉ có một thread được thực thi tại một thời điểm bởi CPU, nhưng CPU có thể chuyển đổi nhanh chóng giữa các thread để tạo hiệu ứng giống như các thread đang được thực thi song song với nhau.
+#### 3. What is a lock? What is deadlock?
+- Lock:
+- Deadlock:
+
+
