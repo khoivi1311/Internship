@@ -198,3 +198,7 @@ Race condition xảy ra khi nhiều luồng đọc và ghi cùng một biến, t
   - Kiểm soát ít hơn: Các ngôn ngữ cấp cao trừu tượng hóa các chi tiết cấp thấp và các chức năng dành riêng cho phần cứng, gây khó khăn cho việc tối ưu hóa code cho phần cứng hoặc hệ thống cụ thể.
   - Sử dụng bộ nhớ cao hơn: Ngôn ngữ cấp cao yêu cầu nhiều bộ nhớ hơn ngôn ngữ cấp thấp vì chúng sử dụng các chức năng và cấu trúc bổ sung để cung cấp nhiều tổ chức và cấu trúc hơn cho code.
 ##### 2. Why Javascript?
+#### 6. Software design pattern
+
+##### 1. Back-end
+##### 2. Front-end
