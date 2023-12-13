@@ -181,3 +181,4 @@ Một thread là đơn vị thực thi nhỏ nhất có thể được quản l�
 Khóa là một biến được gán cho bất kỳ mục dữ liệu nào nhằm theo dõi trạng thái của mục dữ liệu đó để đảm bảo tính cách ly và không can thiệp trong các giao dịch đồng thời. Khóa cơ sở dữ liệu tồn tại để ngăn hai hoặc nhiều người dùng cơ sở dữ liệu thực hiện bất kỳ thay đổi nào trên cùng một mục dữ liệu cùng một lúc.
 - Deadlock:
 Deadlock là hiện tượng tranh chấp tài nguyên giữa hai hay nhiều lệnh trong đó lệnh này giữ tài nguyên mà lệnh kia cần dẫn tới việc không lệnh nào có thể kết thúc để giải phóng tài nguyên. Nếu không được xử lý sẽ dẫn đến hiện tượng các câu lệnh sẽ chờ nhau và không 1 tiến trình nào sẽ được thực hiện tiếp.
+#### 4. What is race condition?
