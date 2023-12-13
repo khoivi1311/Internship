@@ -76,6 +76,7 @@ Danh sách liên kết là một cấu trúc dữ liệu tuyến tính, trong đ
 ##### 1. What is Map?
 Map (còn được gọi là dictionary, associative array, hash map) là một cấu trúc dữ liệu lưu trữ một tập hợp các cặp khóa-giá trị, trong đó mỗi khóa được liên kết với một giá trị duy nhất. Trong đó Map cho phép lưu trữ và truy xuất dữ liệu một cách hiệu quả dựa trên mã định danh duy nhất (key).
 ##### 2. Why is Map used?
+Map được sử lưu trữ và truy xuất dữ liệu hiệu quả, nhanh chóng dựa trên Key. Map còn được sử dụng rộng rãi trong nhiều ứng dụng, bao gồm lập chỉ mục cơ sở dữ liệu, định tuyến mạng và lập trình web.
 ##### 3. What are the advantage and disadvantage of Map?
 - Advantages:
   - Truy cập dữ liệu nhanh: Map cho phép truy xuất các giá trị cụ thể một cách nhanh chóng và hiệu quả, ngay cả khi tập dữ liệu rất lớn.
