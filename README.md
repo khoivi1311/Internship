@@ -43,7 +43,7 @@ Các ngôn ngữ lập trình bậc cao không có con trỏ vì nó khó hiểu
 ##### 1. What is array?
 Mảng là tập hợp các phần tử có cùng kiểu dữ liệu được lưu trữ tại các vị trí vùng nhớ liền kề. Vị trí của các phần tử trong mảng được đánh số liên tục từ 0...n.
 ##### 2. Why is array used?
-Mảng được sử dụng để lưu trữ một lượng lớn các phần tử có cùng kiểu dữ liệu, cho phép truy xuất phần tử ở vị trí bất kỳ một cách nhanh chóng và hiệu quả bằng chỉ mục , để sắp xếp dữ liệu theo thứ tự tăng dần hoặc giảm dần, để biểu diễn ma trận trong các phép tính toán học như nhân ma trận, đại số tuyến tính và xử lý ảnh. 
+Mảng được sử dụng để lưu trữ một lượng lớn các phần tử có cùng kiểu dữ liệu, cho phép truy xuất phần tử ở vị trí bất kỳ một cách nhanh chóng và hiệu quả bằng chỉ mục, để sắp xếp dữ liệu theo thứ tự tăng dần hoặc giảm dần, để biểu diễn ma trận trong các phép tính toán học như nhân ma trận, đại số tuyến tính và xử lý ảnh. 
 ##### 3. What are the advantage and disadvantage of an array?
 - Advantages:
   - Truy cập hiệu quả vào các phần tử: Mảng cấp quyền truy cập trực tiếp vào phần tử ở vị trí bất kỳ trong mảng. Thời gian truy cập vào một phần tử là không đổi và không phụ thuộc vào kích thước của mảng.
@@ -198,8 +198,11 @@ Race condition xảy ra khi nhiều luồng đọc và ghi cùng một biến, t
   - Kiểm soát ít hơn: Các ngôn ngữ cấp cao trừu tượng hóa các chi tiết cấp thấp và các chức năng dành riêng cho phần cứng, gây khó khăn cho việc tối ưu hóa code cho phần cứng hoặc hệ thống cụ thể.
   - Sử dụng bộ nhớ cao hơn: Ngôn ngữ cấp cao yêu cầu nhiều bộ nhớ hơn ngôn ngữ cấp thấp vì chúng sử dụng các chức năng và cấu trúc bổ sung để cung cấp nhiều tổ chức và cấu trúc hơn cho code.
 ##### 2. Why Javascript?
-
+- Hiện thực code dễ dàng và nhanh chóng.
+- Có thể sử dụng để xây dựng ứng dụng da nền tảng như: Web (Front-end, Back-end), Mobile, Desktop.
+- Giúp giảm tải server.
+- Tương thích với nhiều trình duyệt.
+- Tốc độ thực thi nhanh.
 #### 6. Software design pattern
-
 ##### 1. Back-end
 ##### 2. Front-end
