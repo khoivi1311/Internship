@@ -183,3 +183,6 @@ Khóa là một biến được gán cho bất kỳ mục dữ liệu nào nhằ
 Deadlock là hiện tượng tranh chấp tài nguyên giữa hai hay nhiều lệnh trong đó lệnh này giữ tài nguyên mà lệnh kia cần dẫn tới việc không lệnh nào có thể kết thúc để giải phóng tài nguyên. Nếu không được xử lý sẽ dẫn đến hiện tượng các câu lệnh sẽ chờ nhau và không 1 tiến trình nào sẽ được thực hiện tiếp.
 #### 4. What is race condition?
 Race condition xảy ra khi nhiều luồng đọc và ghi cùng một biến, tức là chúng có quyền truy cập vào một số dữ liệu được chia sẻ và cố gắng thay đổi dữ liệu đó cùng một lúc. Trong tình huống như vậy, các luồng đang “chạy đua” với nhau để truy cập/thay đổi dữ liệu. Vì thuật toán chuyển đổi việc thực thi giữa các threads có thể xảy ra bất cứ lúc nào, nên không thể biết được thứ tự của các threads truy cập và thay đổi dữ liệu đó sẽ dẫn đến giá trị của data sẽ không như mong muốn.
+#### 5. Languages
+##### 1. What are advantages and disadvantages of programming language?
+##### 2. Why Javascript?
