@@ -185,4 +185,16 @@ Deadlock là hiện tượng tranh chấp tài nguyên giữa hai hay nhiều l�
 Race condition xảy ra khi nhiều luồng đọc và ghi cùng một biến, tức là chúng có quyền truy cập vào một số dữ liệu được chia sẻ và cố gắng thay đổi dữ liệu đó cùng một lúc. Trong tình huống như vậy, các luồng đang “chạy đua” với nhau để truy cập/thay đổi dữ liệu. Vì thuật toán chuyển đổi việc thực thi giữa các threads có thể xảy ra bất cứ lúc nào, nên không thể biết được thứ tự của các threads truy cập và thay đổi dữ liệu đó sẽ dẫn đến giá trị của data sẽ không như mong muốn.
 #### 5. Languages
 ##### 1. What are advantages and disadvantages of programming language?
+- Advantages:
+  - Trừu tượng hóa và đơn giản hóa: Các ngôn ngữ cấp cao cung cấp mức độ trừu tượng cao hơn, cho phép các lập trình viên tập trung vào logic và chức năng của chương trình thay vì các chi tiết phức tạp của phần cứng hoặc các hoạt động cấp thấp.
+  - Dễ đọc và bảo trì: Code được viết bằng ngôn ngữ cấp cao thường dễ đọc và dễ hiểu hơn, giúp các lập trình viên gỡ lỗi và duy trì các dự án phần mềm dễ dàng hơn.
+  - Năng suất: Các ngôn ngữ cấp cao cung cấp các chức năng, thư viện và khung tích hợp giúp đẩy nhanh quá trình phát triển.
+  - Giảm lỗi: Tính trừu tượng và tự động hóa được cung cấp bởi các ngôn ngữ cấp cao giúp giảm khả năng xảy ra lỗi của con người, chẳng hạn như các vấn đề quản lý bộ nhớ, thường gặp ở các ngôn ngữ cấp thấp.
+  - Bảo mật nâng cao: Nhiều ngôn ngữ cấp cao bao gồm các tính năng và cơ chế bảo mật giúp ngăn ngừa các lỗ hổng phổ biến, giúp phát triển phần mềm an toàn hơn.
+  - Phát triển nhanh: Các ngôn ngữ cấp cao thường cung cấp các tính năng như quản lý bộ nhớ tự động và cú pháp ngắn gọn, cho phép tạo mẫu và phát triển ứng dụng phần mềm nhanh chóng.
+  - Cộng đồng và Tài nguyên: Các ngôn ngữ cấp cao phổ biến có cộng đồng lớn và tích cực, dẫn đến tài liệu, hướng dẫn và tài nguyên trực tuyến phong phú hỗ trợ các lập trình viên học tập và giải quyết vấn đề.
+- Disadvantages:
+  - Thực thi chậm hơn: Ngôn ngữ cấp cao thường chậm hơn ngôn ngữ cấp thấp vì chúng yêu cầu nhiều thời gian xử lý hơn để chuyển code thành mã máy.
+  - Kiểm soát ít hơn: Các ngôn ngữ cấp cao trừu tượng hóa các chi tiết cấp thấp và các chức năng dành riêng cho phần cứng, gây khó khăn cho việc tối ưu hóa code cho phần cứng hoặc hệ thống cụ thể.
+  - Sử dụng bộ nhớ cao hơn: Ngôn ngữ cấp cao yêu cầu nhiều bộ nhớ hơn ngôn ngữ cấp thấp vì chúng sử dụng các chức năng và cấu trúc bổ sung để cung cấp nhiều tổ chức và cấu trúc hơn cho code.
 ##### 2. Why Javascript?
