@@ -401,7 +401,86 @@ await bookService.createBook(newBook); // Create a new book in the database
 await bookService.updateBook(1, { title: 'Updated Book', author: 'John Smith', publishedDate: new Date() });
 ```
 - Observer Pattern
+Mẫu quan sát là mẫu thiết kế cho phép một đối tượng (Subject) thông báo cho các đối tượng khác (Observer) khi trạng thái của nó thay đổi. Nó cung cấp cách để các đối tượng giao tiếp với nhau mà không cần biết trực tiếp về sự tồn tại của nhau.<br>
+Ví dụ:
+  - Define subject interface Topic, which will notify its observers (subscribers) of any updates
 ```
+interface Topic {
+  subscribe(observer: Observer): void;
+  unsubscribe(observer: Observer): void;
+  notify(): void;
+}
+```
+  - Implement the Topic interface in a concrete subject class TopicManager, which manages a list of subscribers and notifies them whenever new content is added
+```
+class TopicManager implements Topic {
+  private subscribers: Observer[] = [];
+
+  public subscribe(observer: Observer): void {
+    this.subscribers.push(observer);
+  }
+
+  public unsubscribe(observer: Observer): void {
+    const index = this.subscribers.indexOf(observer);
+    if (index !== -1) {
+      this.subscribers.splice(index, 1);
+    }
+  }
+
+  public notify(): void {
+    for (const subscriber of this.subscribers) {
+      subscriber.update();
+    }
+  }
+
+  public addContent(topic: string, content: string): void {
+    // Add new content to the topic
+    // ...
+
+    // Notify all subscribers of the new content
+    this.notify();
+  }
+}
+```
+  - Define observer interface Observer, which has an update method that will be called by the subject
+```
+interface Observer {
+  update(): void;
+}
+```
+  - Implement the Observer interface in a concrete observer class User, which receives notifications when new content is added to a subscribed topic
+```
+class User implements Observer {
+  private readonly username: string;
+
+  constructor(username: string) {
+    this.username = username;
+  }
+
+  public update(): void {
+    console.log(`[${this.username}] New content has been added to a subscribed topic`);
+  }
+}
+```
+  - Use TopicManager and User classes to implement subscription feature
+```
+// Create a new topic manager
+const topicManager = new TopicManager();
+
+// Create two users
+const user1 = new User("Alice");
+const user2 = new User("Bob");
+
+// Subscribe the users to a topic
+topicManager.subscribe(user1);
+topicManager.subscribe(user2);
+
+// Add new content to the topic
+topicManager.addContent("science", "New scientific discovery!");
+
+// Output:
+// [Alice] New content has been added to a subscribed topic
+// [Bob] New content has been added to a subscribed topic
 ```
 - Decorator Pattern
 ##### 2. Front-end
