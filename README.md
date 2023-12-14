@@ -724,5 +724,33 @@ public static void main(String[] args) {
         System.out.println(studentBuilder.build());
     }
 ```
-- Singleton Pattern
+- Singleton Pattern được sử dụng để bảo đảm rằng mỗi một lớp (class) chỉ có được một instance duy nhất và mọi tương tác đều thông qua instance này.<br>
+Ví dụ:
+```
+var Singleton = (function () {
+    var instance;
+
+    function createInstance() {
+        var object = new Object("I am the instance");
+        return object;
+    }
+
+    return {
+        getInstance: function () {
+            if (!instance) {
+                instance = createInstance();
+            }
+            return instance;
+        }
+    };
+})();
+
+function run() {
+
+    var instance1 = Singleton.getInstance();
+    var instance2 = Singleton.getInstance();
+
+    console.log("Same instance? " + (instance1 === instance2));
+}
+```
 - Factory Pattern
