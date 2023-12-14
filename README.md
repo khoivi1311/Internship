@@ -3,7 +3,7 @@
 ### Data Type
 #### 1. Primitive Type
 Kiểu dữ liệu nguyên thủy là kiểu dữ liệu cơ bản, thường có kích thước cố định và có giá trị mặc định và nó không phải là đối tượng và cũng không có phương thức. Có 6 kiểu dữ liệu nguyên thủy: undefined, boolean, number, string, bigint, symbol. Khi khai báo một kiểu dữ liệu nguyên thủy trong JavaScript, nó sẽ được lưu trữ trên Stack. Kiểu dữ liệu nguyên thủy lưu trên Stack được xác định bằng tên biến đã khai báo trong chương trình và mỗi khi kiểu dữ liệu nguyên thủy mới được tạo ra sẽ thêm vào Stack và xếp chồng lên nhau. Mỗi biến được tạo ra sẽ có vùng nhớ độc lập với nhau. Do đó khi gán giá trị của biến này cho biến khác thì giá trị của hai biến hoàn toàn độc lập. Khi một trong hai biến thay đổi giá trị thì giá trị của biến còn lại sẽ không bị thay đổi.<br>
-Ví dụ: 
+Ví dụ:
 ```
 let a = 3; 
 let b = a;
@@ -205,20 +205,6 @@ Race condition xảy ra khi nhiều luồng đọc và ghi cùng một biến, t
 - Tốc độ thực thi nhanh.
 #### 6. Software design pattern
 Design pattern là các giải pháp tổng thể đã được tối ưu hóa, được tái sử dụng cho các vấn đề phổ biến trong thiết kế phần mềm mà chúng ta thường gặp phải hàng ngày. Đây là tập các giải pháp đã được suy nghĩ, đã giải quyết trong tình huống cụ thể. Hệ thống các mẫu design pattern được chia thành 3 nhóm: nhóm Creational, nhóm Structural và nhóm Behavioral.
-- Creational Patterns
-  - Builder
-  - Factory
-  - Prototype
-  - Singleton
-- Structural Patterns
-  - Adapter
-  - Decorator
-  - Facade
-  - Proxy
-- Behavioral Patterns
-  - Chain of responsibility
-  - Iterator
-  - Observer
 ##### 1. Back-end
 - MVC (Model-View-Controller) Pattern
 MVC là một mẫu kiến ​​trúc phân tách một ứng dụng thành ba thành phần logic chính Model, View và Controller. Trong đó mỗi thành phần kiến ​​trúc được xây dựng để xử lý nhiệm vụ khác nhau trong một ứng dụng. MVC tách lớp logic nghiệp vụ và lớp hiển thị ra riêng biệt.<br>
@@ -338,7 +324,7 @@ class PostController {
 ```
 - Dependency Injection Pattern
 Dependency Injection (DI) là một design pattern trong lập trình, giúp quản lý sự phụ thuộc giữa các thành phần của ứng dụng. Trong DI, các module không giao tiếp trực tiếp với nhau mà thông qua interface. Các module cấp thấp sẽ hiện thực interface, và module cấp cao sẽ giao tiếp thông qua interface này.<br>
-Ví dụ
+Ví dụ:
 ```
 // Define an interface for a database connection object
 interface DatabaseConnection {
@@ -483,6 +469,9 @@ topicManager.addContent("science", "New scientific discovery!");
 // [Bob] New content has been added to a subscribed topic
 ```
 - Decorator Pattern
+Decorator Pattern cho phép người dùng thêm chức năng mới vào đối tượng hiện tại mà không muốn ảnh hưởng đến các đối tượng khác. Kiểu thiết kế này có cấu trúc hoạt động như một lớp bao bọc cho lớp hiện có. Mỗi khi cần thêm tính năng mới, đối tượng hiện có được bao bọc trong một đối tượng mới (decorator class).<br>
+Ví dụ:
+
 ##### 2. Front-end
 - Module Pattern
 - Strategy Pattern
