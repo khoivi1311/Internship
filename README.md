@@ -471,7 +471,96 @@ topicManager.addContent("science", "New scientific discovery!");
 - Decorator Pattern
 Decorator Pattern cho phép người dùng thêm chức năng mới vào đối tượng hiện tại mà không muốn ảnh hưởng đến các đối tượng khác. Kiểu thiết kế này có cấu trúc hoạt động như một lớp bao bọc cho lớp hiện có. Mỗi khi cần thêm tính năng mới, đối tượng hiện có được bao bọc trong một đối tượng mới (decorator class).<br>
 Ví dụ:
+  - A class Car that represents a basic car with some properties and methods
+```
+class Car {
+  private make: string;
+  private model: string;
+  private year: number;
+  private price: number;
 
+  constructor(make: string, model: string, year: number, price: number) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.price = price;
+  }
+
+  public getMake(): string {
+    return this.make;
+  }
+
+  public getModel(): string {
+    return this.model;
+  }
+
+  public getYear(): number {
+    return this.year;
+  }
+
+  public getPrice(): number {
+    return this.price;
+  }
+}
+```
+  - Define an abstract base class CarFeature that all decorators will inherit
+```
+abstract class CarFeature extends Car {
+  protected car: Car;
+
+  constructor(car: Car) {
+    super(car.getMake(), car.getModel(), car.getYear(), car.getPrice());
+    this.car = car;
+  }
+
+  public abstract getPrice(): number;
+}
+```
+  - Implement concrete decorator classes that add the desired functionality to the Car class:
+```
+class SalesTaxDecorator extends CarFeature {
+  public getPrice(): number {
+    return this.car.getPrice() * 1.10; // 10% sales tax
+  }
+}
+
+class NavigationDecorator extends CarFeature {
+  public getPrice(): number {
+    return this.car.getPrice() + 1500; // add $1500 for navigation system
+  }
+}
+
+class SunroofDecorator extends CarFeature {
+  public getPrice(): number {
+    return this.car.getPrice() + 1000; // add $1000 for sunroof
+  }
+}
+```
+  - Use these decorators to add functionality to a Car object dynamically
+```
+// Create a basic car
+const car = new Car("Honda", "Accord", 2022, 25000);
+
+// Add sales tax to the car
+const carWithSalesTax = new SalesTaxDecorator(car);
+
+// Add a navigation system to the car
+const carWithNavigation = new NavigationDecorator(carWithSalesTax);
+
+// Add a sunroof to the car
+const carWithSunroof = new SunroofDecorator(carWithNavigation);
+
+console.log(`Make: ${carWithSunroof.getMake()}`);
+console.log(`Model: ${carWithSunroof.getModel()}`);
+console.log(`Year: ${carWithSunroof.getYear()}`);
+console.log(`Price: ${carWithSunroof.getPrice()}`);
+
+// Output:
+// Make: Honda
+// Model: Accord
+// Year: 2022
+// Price: 28750
+```
 ##### 2. Front-end
 - Module Pattern
 - Strategy Pattern
