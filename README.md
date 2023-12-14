@@ -204,5 +204,97 @@ Race condition xảy ra khi nhiều luồng đọc và ghi cùng một biến, t
 - Tương thích với nhiều trình duyệt.
 - Tốc độ thực thi nhanh.
 #### 6. Software design pattern
+Design pattern là các giải pháp tổng thể đã được tối ưu hóa, được tái sử dụng cho các vấn đề phổ biến trong thiết kế phần mềm mà chúng ta thường gặp phải hàng ngày. Đây là tập các giải pháp đã được suy nghĩ, đã giải quyết trong tình huống cụ thể. Hệ thống các mẫu design pattern được chia thành 3 nhóm: nhóm Creational, nhóm Structural và nhóm Behavioral.
+- Creational Patterns
+  - Builder
+  - Factory
+  - Prototype
+  - Singleton
+- Structural Patterns
+  - Adapter
+  - Decorator
+  - Facade
+  - Proxy
+- Behavioral Patterns
+  - Chain of responsibility
+  - Iterator
+  - Observer
 ##### 1. Back-end
+- MVC (Model-View-Controller) Pattern
+MVC là một mẫu kiến ​​trúc phân tách một ứng dụng thành ba thành phần logic chính Model, View và Controller. Trong đó mỗi thành phần kiến ​​trúc được xây dựng để xử lý nhiệm vụ khác nhau trong một ứng dụng. MVC tách lớp logic nghiệp vụ và lớp hiển thị ra riêng biệt.<br>
+  - Model: Có nhiệm vụ thao tác với Database, nó chứa tất cả các hàm, các phương thức truy vấn trực tiếp với dữ liệu. Controller sẽ thông qua các hàm, phương thức đó để lấy dữ liệu rồi gửi qua View.
+  - View: Là giao diện người dùng, nơi nhận dữ liệu từ Controller và hiển thị lên giao diện.
+  - Controller: Đảm nhận vai trò tiếp nhận yêu cầu từ người dùng, thông qua Model để lấy dữ liệu sau đó thông qua View để hiển thị cho người dùng.<br>
+Ví dụ:<br>
+  - Model
+```
+interface Post {
+  id: number;
+  title: string;
+  content: string;
+  date: Date;
+}
+
+class PostModel {
+  private posts: Post[] = [];
+
+  getPosts() {
+    // fetch posts from database
+    return this.posts;
+  }
+
+  addPost(post: Post) {
+    // save post to database
+    this.posts.push(post);
+  }
+}
+```
+  - View
+```
+class PostView {
+  displayPosts(posts: Post[]) {
+    // render posts to the HTML page
+  }
+
+  getPostFromInput(): Post {
+    // retrieve input values from the HTML page
+    // and create a new Post object
+  }
+}
+```
+  - Controller
+```
+class PostController {
+  private model: PostModel;
+  private view: PostView;
+
+  constructor(model: PostModel, view: PostView) {
+    this.model = model;
+    this.view = view;
+  }
+
+  init() {
+    // initialize the view
+    this.view.displayPosts(this.model.getPosts());
+  }
+
+  addPost() {
+    // get new post from view
+    const post = this.view.getPostFromInput();
+    // add post to model
+    this.model.addPost(post);
+    // update view
+    this.view.displayPosts(this.model.getPosts());
+  }
+}
+```
+- Repository Pattern
+- Dependency Injection Pattern
+- Observer Pattern
+- Decorator Pattern
 ##### 2. Front-end
+- Module Pattern
+- Strategy Pattern
+- Builder Pattern
+- Singleton Pattern
+- Factory Pattern
