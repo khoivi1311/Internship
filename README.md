@@ -206,7 +206,7 @@ Race condition xảy ra khi nhiều luồng đọc và ghi cùng một biến, t
 #### 6. Software design pattern
 Design pattern là các giải pháp tổng thể đã được tối ưu hóa, được tái sử dụng cho các vấn đề phổ biến trong thiết kế phần mềm mà chúng ta thường gặp phải hàng ngày. Đây là tập các giải pháp đã được suy nghĩ, đã giải quyết trong tình huống cụ thể. Hệ thống các mẫu design pattern được chia thành 3 nhóm: nhóm Creational, nhóm Structural và nhóm Behavioral.
 ##### 1. Back-end
-- MVC (Model-View-Controller) Pattern
+- MVC (Model-View-Controller) Pattern<br>
 MVC là một mẫu kiến ​​trúc phân tách một ứng dụng thành ba thành phần logic chính Model, View và Controller. Trong đó mỗi thành phần kiến ​​trúc được xây dựng để xử lý nhiệm vụ khác nhau trong một ứng dụng. MVC tách lớp logic nghiệp vụ và lớp hiển thị ra riêng biệt.<br>
   - Model: Có nhiệm vụ thao tác với Database, nó chứa tất cả các hàm, các phương thức truy vấn trực tiếp với dữ liệu. Controller sẽ thông qua các hàm, phương thức đó để lấy dữ liệu rồi gửi qua View.
   - View: Là giao diện người dùng, nơi nhận dữ liệu từ Controller và hiển thị lên giao diện.
@@ -274,7 +274,7 @@ class PostController {
   }
 }
 ```
-- Repository Pattern
+- Repository Pattern<br>
 Repository Pattern là lớp trung gian giữa tầng Business Logic và Data Access, giúp cho việc truy cập dữ liệu chặt chẽ và bảo mật hơn. Repository đóng vai trò là một lớp kết nối giữa tầng Business và Model của ứng dụng. Việc tách lớp chứa tất cả các hàm, các phương thức truy vấn trực tiếp với dữ liệu khỏi lớp lưu trữ dữ liệu, giúp việc kiểm tra và bảo trì từng thành phần riêng biệt trở nên dễ dàng hơn.<br>
 Ví dụ:
   - Repository
@@ -322,7 +322,7 @@ class PostController {
   }
 }
 ```
-- Dependency Injection Pattern
+- Dependency Injection Pattern<br>
 Dependency Injection (DI) là một design pattern trong lập trình, giúp quản lý sự phụ thuộc giữa các thành phần của ứng dụng. Trong DI, các module không giao tiếp trực tiếp với nhau mà thông qua interface. Các module cấp thấp sẽ hiện thực interface, và module cấp cao sẽ giao tiếp thông qua interface này.<br>
 Ví dụ:
 ```
@@ -386,7 +386,7 @@ const newBook = { title: 'New Book', author: 'Jane Doe', publishedDate: new Date
 await bookService.createBook(newBook); // Create a new book in the database
 await bookService.updateBook(1, { title: 'Updated Book', author: 'John Smith', publishedDate: new Date() });
 ```
-- Observer Pattern
+- Observer Pattern<br>
 Mẫu quan sát là mẫu thiết kế cho phép một đối tượng (Subject) thông báo cho các đối tượng khác (Observer) khi trạng thái của nó thay đổi. Nó cung cấp cách để các đối tượng giao tiếp với nhau mà không cần biết trực tiếp về sự tồn tại của nhau.<br>
 Ví dụ:
   - Define subject interface Topic, which will notify its observers (subscribers) of any updates
@@ -468,7 +468,7 @@ topicManager.addContent("science", "New scientific discovery!");
 // [Alice] New content has been added to a subscribed topic
 // [Bob] New content has been added to a subscribed topic
 ```
-- Decorator Pattern
+- Decorator Pattern<br>
 Decorator Pattern cho phép người dùng thêm chức năng mới vào đối tượng hiện tại mà không muốn ảnh hưởng đến các đối tượng khác. Kiểu thiết kế này có cấu trúc hoạt động như một lớp bao bọc cho lớp hiện có. Mỗi khi cần thêm tính năng mới, đối tượng hiện có được bao bọc trong một đối tượng mới (decorator class).<br>
 Ví dụ:
   - A class Car that represents a basic car with some properties and methods
@@ -562,7 +562,7 @@ console.log(`Price: ${carWithSunroof.getPrice()}`);
 // Price: 28750
 ```
 ##### 2. Front-end
-- Module Pattern
+- Module Pattern<br>
 Module Pattern là mẫu thiết kế JavaScript nhằm thúc đẩy việc đóng gói và tổ chức mã. Cung cấp khả năng đóng gói dữ liệu với cả thuộc tính và phương thức dạng public/private, giúp tránh xung đột về tên đối với các function ở các script khác trên trang web. Sử dụng IIFE ({}) để bao đóng module code.<br>
 Ví dụ:
 ```
@@ -587,7 +587,7 @@ var module = (function () {
 })();
 module.getOptions();
 ```
-- Strategy Pattern
+- Strategy Pattern<br>
 Strategy Pattern được sử dụng rất nhiều khi có các tác vụ tương tự nhau và cần thay đổi giữa các tác vụ trong thời gian chạy. Strategy Pattern giúp loại bỏ rất nhiều câu if-else, để làm được điều đó chỉ đơn giản là chúng tôi phải gói gọn các nhiệm vụ thành các phần nhỏ và sử dụng một đối tượng để truy cập vào.<br>
 Ví dụ: Giả sử có dropdown list với các loại người dùng khác nhau (người dùng thông thường, quản trị viên và khách) và mong muốn hiển thị biểu mẫu trên cùng một trang tùy thuộc vào loại người dùng nào đã được chọn.
 ```
