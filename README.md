@@ -641,7 +641,7 @@ class DataTable{
 * Builder class to create DataTable objects.
 */
 function DataTableBuilder () {
-  let defualtOptions ={ width:100, height:200, headerFixed: false };
+  let defaultOptions ={ width:100, height:200, headerFixed: false };
 
   /*
   * Method to make the format required.
