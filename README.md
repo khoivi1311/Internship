@@ -563,7 +563,72 @@ console.log(`Price: ${carWithSunroof.getPrice()}`);
 ```
 ##### 2. Front-end
 - Module Pattern
+Module Pattern là mẫu thiết kế JavaScript nhằm thúc đẩy việc đóng gói và tổ chức mã. Cung cấp khả năng đóng gói dữ liệu với cả thuộc tính và phương thức dạng public/private, giúp tránh xung đột về tên đối với các function ở các script khác trên trang web. Sử dụng IIFE ({}) để bao đóng module code.<br>
+Ví dụ:
+```
+var module = (function () {
+  let options = {color:"red"}
+  /*
+    private code here
+  */
+  const setSize = function () {
+    options["size"] = 12;
+  };
+
+  /*
+    public code here
+  */
+  return {
+    getOptions: function () {
+      setSize();
+      return options;
+    }
+  };
+})();
+module.getOptions();
+```
 - Strategy Pattern
+Strategy Pattern được sử dụng rất nhiều khi có các tác vụ tương tự nhau và cần thay đổi giữa các tác vụ trong thời gian chạy. Strategy Pattern giúp loại bỏ rất nhiều câu if-else, để làm được điều đó chỉ đơn giản là chúng tôi phải gói gọn các nhiệm vụ thành các phần nhỏ và sử dụng một đối tượng để truy cập vào.<br>
+Ví dụ: Giả sử có dropdown list với các loại người dùng khác nhau (người dùng thông thường, quản trị viên và khách) và mong muốn hiển thị biểu mẫu trên cùng một trang tùy thuộc vào loại người dùng nào đã được chọn.
+```
+// React components section
+import React from "react";
+import UserForm  from "./userForm";
+import AdminForm from "./adminForm";
+import GuestForm from "./guestForm";
+
+/*
+* This object will help to encapsulate all the forms that could we have.
+*/
+const FormsManage = {
+  user : {
+    render(props){
+      return <UserForm {...props} />
+    }
+  },
+  admin:{
+    render(props){
+      return <AdminForm {...props} />
+    }
+  },
+  guest:{
+    render(props) {
+      return <GuestForm {...props}/> 
+    }
+  }
+};
+
+/*
+* Main form component
+*/
+const Form = (props) => {
+  // here we are getting the form by type
+  const userForm = FormsManage[props.type];
+  return userForm.render(props);
+};
+export default Form;
+```
 - Builder Pattern
+
 - Singleton Pattern
 - Factory Pattern
