@@ -623,6 +623,7 @@ export default Form;
 ```
 - Builder Pattern là một mẫu thiết kế được dùng để cung cấp một giải pháp linh hoạt cho các vấn đề tạo đối tượng (object) khác nhau trong lập trình hướng đối tượng. Cho phép xây dựng các đối tượng phức tạp bằng cách sử dụng các đối tượng đơn giản và sử dụng tiếp cận từng bước. Builder Pattern còn cho phép tạo ra các kiểu thể hiện khác nhau của một đối tượng bằng cách sử dụng cùng một constructor code.<br>
 ![image](https://github.com/khoivi1311/Internship/assets/115878838/d7f0cbbd-1ce7-4888-8efa-a957d44dfb51)
+
 Ví dụ:
 ```
 // Product 
