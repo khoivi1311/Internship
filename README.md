@@ -621,7 +621,80 @@ const Form = (props) => {
 };
 export default Form;
 ```
-- Builder Pattern
+- Builder Pattern là một mẫu thiết kế được dùng để cung cấp một giải pháp linh hoạt cho các vấn đề tạo đối tượng (object) khác nhau trong lập trình hướng đối tượng. Cho phép xây dựng các đối tượng phức tạp bằng cách sử dụng các đối tượng đơn giản và sử dụng tiếp cận từng bước. Builder Pattern còn cho phép tạo ra các kiểu thể hiện khác nhau của một đối tượng bằng cách sử dụng cùng một constructor code.<br>
+Ví dụ:
+```
+/*
+* Mock class
+*/
+class DataTable{
+  constructor(data ,options){
+    this.data = data;
+    this.options = options
+  }
+  getData(){
+    return this.data;
+  }
+}
 
+/*
+* Builder class to create DataTable objects.
+*/
+function DataTableBuilder () {
+  let defualtOptions ={ width:100, height:200, headerFixed: false };
+
+  /*
+  * Method to make the format required.
+  */
+  function generateFormattedData(data,header){
+    return data.map(item => {
+      let result = {};
+      item.forEach((val,idx) => {
+          result[header[idx] || "df"+idx] = val;
+      });
+      return result;
+    });
+  };
+
+  /*
+  * Public steps methods
+  */
+  return {
+    addHeader(header){
+      this.header = header || [];
+      return this;
+    },
+    addData(data){
+      this.data = data || [];
+      return this;
+    },
+    addOptions(options){
+      this.options = { ...defualtOptions, ...options};
+      return this;
+    },
+    build(){
+      const formattedData = generateFormattedData(this.data,this.header);
+      return new DataTable(formattedData,this.options);
+    }
+  }
+};
+
+/*
+* Data needed to build the Datatable object 
+*/
+const header=["name","age","position"];
+const rows = [["Luis",19,"Dev"],["Bob",23,"HR"], ["Michel",25,"Accounter"]];
+const options = { headerFixed:true };
+
+/*
+*  Start to the builder process
+*/
+const dt = new DataTableBuilder()
+                  .addHeader(header)
+                  .addData(rows)
+                  .addOptions(options)
+                  .build();
+dt.getData();
+```
 - Singleton Pattern
 - Factory Pattern
