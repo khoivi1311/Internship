@@ -289,6 +289,53 @@ class PostController {
 }
 ```
 - Repository Pattern
+Repository Pattern là lớp trung gian giữa tầng Business Logic và Data Access, giúp cho việc truy cập dữ liệu chặt chẽ và bảo mật hơn. Repository đóng vai trò là một lớp kết nối giữa tầng Business và Model của ứng dụng. Việc tách lớp chứa tất cả các hàm, các phương thức truy vấn trực tiếp với dữ liệu khỏi lớp lưu trữ dữ liệu, giúp việc kiểm tra và bảo trì từng thành phần riêng biệt trở nên dễ dàng hơn.<br>
+Ví dụ:
+  - Repository
+```
+class PostRepository {
+  private db: any; // Database connection object
+
+  constructor(db: any) {
+    this.db = db;
+  }
+
+  async getPosts(): Promise<Post[]> {
+    const result = await this.db.query('SELECT * FROM books');
+    return result.rows;
+  }
+
+  async addPost(post: Post): Promise<void> {
+     await this.db.query('INSERT INTO posts (title, content, date) VALUES ($1, $2, $3)', [post.title, post.content, post.date]);
+  }
+}
+```
+  - Controller
+```
+class PostController {
+  private repository: PostRepository;
+  private view: PostView;
+
+  constructor(repository: PostRepository, view: PostView) {
+    this.repository = repository;
+    this.view = view;
+  }
+
+  init() {
+    // initialize the view
+    this.view.displayPosts(this.repository.getPosts());
+  }
+
+  addPost() {
+    // get new post from view
+    const post = this.view.getPostFromInput();
+    // add post
+    this.repository.addPost(post);
+    // update view
+    this.view.displayPosts(this.repository.getPosts());
+  }
+}
+```
 - Dependency Injection Pattern
 - Observer Pattern
 - Decorator Pattern
