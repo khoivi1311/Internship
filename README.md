@@ -669,7 +669,7 @@ function DataTableBuilder () {
       return this;
     },
     addOptions(options){
-      this.options = { ...defualtOptions, ...options};
+      this.options = { ...defaultOptions, ...options};
       return this;
     },
     build(){
