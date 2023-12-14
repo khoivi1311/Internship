@@ -337,7 +337,72 @@ class PostController {
 }
 ```
 - Dependency Injection Pattern
+Dependency Injection (DI) là một design pattern trong lập trình, giúp quản lý sự phụ thuộc giữa các thành phần của ứng dụng. Trong DI, các module không giao tiếp trực tiếp với nhau mà thông qua interface. Các module cấp thấp sẽ hiện thực interface, và module cấp cao sẽ giao tiếp thông qua interface này.<br>
+Ví dụ
+```
+// Define an interface for a database connection object
+interface DatabaseConnection {
+  query(sql: string, params?: any[]): Promise<any>;
+}
+
+// Define a class for a PostgreSQL database connection
+class PostgresConnection implements DatabaseConnection {
+  private client: any; // PostgreSQL client object
+
+  constructor() {
+    this.client = new PostgreSQLClient(); // Instantiate a PostgreSQL client object
+    this.client.connect(); // Connect to the database
+  }
+
+  async query(sql: string, params?: any[]): Promise<any> {
+    const result = await this.client.query(sql, params);
+    return result.rows;
+  }
+}
+
+// Define a class for a BookService that depends on a database connection
+class BookService {
+  private db: DatabaseConnection; // Database connection object
+
+  constructor(db: DatabaseConnection) {
+    this.db = db;
+  }
+
+  async getAllBooks(): Promise<Book[]> {
+    const result = await this.db.query('SELECT * FROM books');
+    return result.map((row: any) => ({ id: row.id, title: row.title, author: row.author, publishedDate: row.published_date }));
+  }
+
+  async getBookById(id: number): Promise<Book> {
+    const result = await this.db.query('SELECT * FROM books WHERE id = $1', [id]);
+    return { id: result.id, title: result.title, author: result.author, publishedDate: result.published_date };
+  }
+
+  async createBook(book: Book): Promise<void> {
+    await this.db.query('INSERT INTO books (title, author, published_date) VALUES ($1, $2, $3)', [book.title, book.author, book.publishedDate]);
+  }
+
+  async updateBook(id: number, book: Book): Promise<void> {
+    await this.db.query('UPDATE books SET title = $1, author = $2, published_date = $3 WHERE id = $4', [book.title, book.author, book.publishedDate, id]);
+  }
+
+  async deleteBook(id: number): Promise<void> {
+    await this.db.query('DELETE FROM books WHERE id = $1', [id]);
+  }
+}
+
+// Example usage of the BookService class with a PostgresConnection object
+const db = new PostgresConnection(); // Instantiate a PostgresConnection object
+const bookService = new BookService(db); // Instantiate a BookService object with the PostgresConnection object as its dependency
+const books = await bookService.getAllBooks(); // Get all books from the database
+const book = await bookService.getBookById(1); // Get a book by its ID
+const newBook = { title: 'New Book', author: 'Jane Doe', publishedDate: new Date() };
+await bookService.createBook(newBook); // Create a new book in the database
+await bookService.updateBook(1, { title: 'Updated Book', author: 'John Smith', publishedDate: new Date() });
+```
 - Observer Pattern
+```
+```
 - Decorator Pattern
 ##### 2. Front-end
 - Module Pattern
