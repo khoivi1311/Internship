@@ -622,79 +622,107 @@ const Form = (props) => {
 export default Form;
 ```
 - Builder Pattern là một mẫu thiết kế được dùng để cung cấp một giải pháp linh hoạt cho các vấn đề tạo đối tượng (object) khác nhau trong lập trình hướng đối tượng. Cho phép xây dựng các đối tượng phức tạp bằng cách sử dụng các đối tượng đơn giản và sử dụng tiếp cận từng bước. Builder Pattern còn cho phép tạo ra các kiểu thể hiện khác nhau của một đối tượng bằng cách sử dụng cùng một constructor code.<br>
+![image](https://github.com/khoivi1311/Internship/assets/115878838/d7f0cbbd-1ce7-4888-8efa-a957d44dfb51)
 Ví dụ:
 ```
-/*
-* Mock class
-*/
-class DataTable{
-  constructor(data ,options){
-    this.data = data;
-    this.options = options
-  }
-  getData(){
-    return this.data;
-  }
+// Product 
+public class Student {
+    private String id;
+    private String firstName;
+    private String lastName;
+    private String dayOfBirth;
+    private String currentClass;
+    private String phone;
+
+    public Student(String id, String firstName, String lastName, String dayOfBirth, String currentClass, String phone) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dayOfBirth = dayOfBirth;
+        this.currentClass = currentClass;
+        this.phone = phone;
+    }
 }
 
-/*
-* Builder class to create DataTable objects.
-*/
-function DataTableBuilder () {
-  let defaultOptions ={ width:100, height:200, headerFixed: false };
+// Builder 
+public interface StudentBuilder {
 
-  /*
-  * Method to make the format required.
-  */
-  function generateFormattedData(data,header){
-    return data.map(item => {
-      let result = {};
-      item.forEach((val,idx) => {
-          result[header[idx] || "df"+idx] = val;
-      });
-      return result;
-    });
-  };
+    StudentBuilder setId(String id);
 
-  /*
-  * Public steps methods
-  */
-  return {
-    addHeader(header){
-      this.header = header || [];
-      return this;
-    },
-    addData(data){
-      this.data = data || [];
-      return this;
-    },
-    addOptions(options){
-      this.options = { ...defaultOptions, ...options};
-      return this;
-    },
-    build(){
-      const formattedData = generateFormattedData(this.data,this.header);
-      return new DataTable(formattedData,this.options);
+    StudentBuilder setFirstName(String firstName);
+
+    StudentBuilder setLastName(String lastName);
+
+    StudentBuilder setDayOfBirth(String dayOfBirth);
+
+    StudentBuilder setCurrentClass(String currentClass);
+
+    StudentBuilder setPhone(String phone);
+
+    Student build();
+}
+
+// ConcreteBuilder
+public class StudentConcreteBuilder implements StudentBuilder {
+
+    private String id;
+    private String firstName;
+    private String lastName;
+    private String dayOfBirth;
+    private String currentClass;
+    private String phone;
+
+    @Override
+    public StudentBuilder setId(String id) {
+        this.id = id;
+        return this;
     }
-  }
-};
 
-/*
-* Data needed to build the Datatable object 
-*/
-const header=["name","age","position"];
-const rows = [["Luis",19,"Dev"],["Bob",23,"HR"], ["Michel",25,"Accounter"]];
-const options = { headerFixed:true };
+    @Override
+    public StudentBuilder setFirstName(String firstName) {
+        this.firstName = firstName;
+        return this;
+    }
 
-/*
-*  Start to the builder process
-*/
-const dt = new DataTableBuilder()
-                  .addHeader(header)
-                  .addData(rows)
-                  .addOptions(options)
-                  .build();
-dt.getData();
+    @Override
+    public StudentBuilder setLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    @Override
+    public StudentBuilder setDayOfBirth(String dayOfBirth) {
+        this.dayOfBirth = dayOfBirth;
+        return this;
+    }
+
+    @Override
+    public StudentBuilder setCurrentClass(String currentClass) {
+        this.currentClass = currentClass;
+        return this;
+    }
+
+    @Override
+    public StudentBuilder setPhone(String phone) {
+        this.phone = phone;
+        return this;
+    }
+
+    @Override
+    public Student build() {
+        return new Student(id, firstName, lastName, dayOfBirth, currentClass, phone);
+    }
+}
+
+//Director
+public static void main(String[] args) {
+
+        StudentBuilder studentBuilder = new StudentConcreteBuilder()
+                .setFirstName("Tran")
+                .setLastName("Quang Huy");
+
+        System.out.println(studentBuilder.build());
+    }
 ```
 - Singleton Pattern
 - Factory Pattern
