@@ -753,4 +753,56 @@ function run() {
     console.log("Same instance? " + (instance1 === instance2));
 }
 ```
-- Factory Pattern
+- Factory Pattern là một trong những Design Pattern thuộc nhóm Creational. Nhiệm vụ của Factory Pattern là quản lý và trả về các đối tượng theo yêu cầu, giúp cho việc khởi tạo đổi tượng một cách linh hoạt hơn.<br>
+Ví dụ:
+- Tạo các class
+```
+class TailFactory {
+  constructor(props) {
+    this.tailLength = props.tailLength;
+  }
+};
+
+class TorsoFactory {
+  constructor(props) {
+    this.color = props.color;
+  }
+};
+
+class HeadFactory {
+  constructor(props) {
+    this.snoutLenth = props.snoutLenth;
+  }
+};
+```
+- Tạo Factory để quản lý việc tạo đối tượng
+```
+class ReptilePartFactory {
+  constructor(type, props) {
+    if(type === "tail")
+      return new TailFactory(props);
+    if(type === "torso")
+      return new TorsoFactory(props);
+    if(type === "head")
+      return new HeadFactory(props);
+  }
+};
+```
+- Gọi Factory ở Main
+```
+let alligator = {};
+let alligatorProps = {
+  tailLength : 2.5, 
+  color: "green",
+  snoutLenth: 1
+};
+
+//gets a tail from the tail factory
+alligator.tail  = new ReptilePartFactory("tail", alligatorProps); 
+
+//gets a torso from the torso factory
+alligator.torso = new ReptilePartFactory("torso", alligatorProps);
+
+//gets a head from the head factory
+alligator.head  = new ReptilePartFactory("head", alligatorProps);
+```
