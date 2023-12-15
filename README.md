@@ -133,7 +133,8 @@ Cấu trúc dữ liệu Set thường được sử dụng trong nhiều ứng d
 ##### 2. What is algorithm complexity?
 Độ phức tạp của thuật toán là hàm mô tả hiệu quả của thuật toán xét về lượng dữ liệu mà nó phải xử lý. Có hai thước đo độ phức tạp cơ bản về hiệu quả của thuật toán: <br>
 Độ phức tạp về thời gian là một hàm mô tả số lần thực hiện các câu lệnh của một thuật toán tính theo số lượng đầu vào mà nó nhận được.<br>
-Độ phức tạp của không gian là một hàm mô tả lượng bộ nhớ (không gian) mà thuật toán yêu cầu đối với số lượng đầu vào của phương thức.
+Độ phức tạp của không gian là một hàm mô tả lượng bộ nhớ (không gian) mà thuật toán yêu cầu đối với số lượng đầu vào của phương thức.<br>
+Big O là ký hiệu thể hiện thời gian chạy tối ưu nhất, chậm nhất và trung bình của một thuật toán.
 #### 2. Quick Sort
 - Độ phức tạp thuật toán:
   - Trường hợp tốt: O(nlog(n))
@@ -184,20 +185,37 @@ Deadlock là hiện tượng tranh chấp tài nguyên giữa hai hay nhiều l�
 #### 4. What is race condition?
 Race condition xảy ra khi nhiều luồng đọc và ghi cùng một biến, tức là chúng có quyền truy cập vào một số dữ liệu được chia sẻ và cố gắng thay đổi dữ liệu đó cùng một lúc. Trong tình huống như vậy, các luồng đang “chạy đua” với nhau để truy cập/thay đổi dữ liệu. Vì thuật toán chuyển đổi việc thực thi giữa các threads có thể xảy ra bất cứ lúc nào, nên không thể biết được thứ tự của các threads truy cập và thay đổi dữ liệu đó sẽ dẫn đến giá trị của data sẽ không như mong muốn.
 #### 5. Languages
-##### 1. What are advantages and disadvantages of programming language?
+##### 1. C/C++
+- C là một ngôn ngữ lập trình hướng cấu trúc được phát triển từ đầu thập niên 1970 bởi Dennis Ritchie và được coi là cơ sở cho các ngôn ngữ lập trình hiện đại.
+C++ là một ngôn ngữ lập trình hướng đối tượng và hướng cấu trúc được tạo ra bởi Bjarne Stroustrup như một phần mở rộng của ngôn ngữ lập trình C.
 - Advantages:
-  - Trừu tượng hóa và đơn giản hóa: Các ngôn ngữ cấp cao cung cấp mức độ trừu tượng cao hơn, cho phép các lập trình viên tập trung vào logic và chức năng của chương trình thay vì các chi tiết phức tạp của phần cứng hoặc các hoạt động cấp thấp.
-  - Dễ đọc và bảo trì: Code được viết bằng ngôn ngữ cấp cao thường dễ đọc và dễ hiểu hơn, giúp các lập trình viên gỡ lỗi và duy trì các dự án phần mềm dễ dàng hơn.
-  - Năng suất: Các ngôn ngữ cấp cao cung cấp các chức năng, thư viện và khung tích hợp giúp đẩy nhanh quá trình phát triển.
-  - Giảm lỗi: Tính trừu tượng và tự động hóa được cung cấp bởi các ngôn ngữ cấp cao giúp giảm khả năng xảy ra lỗi của con người, chẳng hạn như các vấn đề quản lý bộ nhớ, thường gặp ở các ngôn ngữ cấp thấp.
-  - Bảo mật nâng cao: Nhiều ngôn ngữ cấp cao bao gồm các tính năng và cơ chế bảo mật giúp ngăn ngừa các lỗ hổng phổ biến, giúp phát triển phần mềm an toàn hơn.
-  - Phát triển nhanh: Các ngôn ngữ cấp cao thường cung cấp các tính năng như quản lý bộ nhớ tự động và cú pháp ngắn gọn, cho phép tạo mẫu và phát triển ứng dụng phần mềm nhanh chóng.
-  - Cộng đồng và Tài nguyên: Các ngôn ngữ cấp cao phổ biến có cộng đồng lớn và tích cực, dẫn đến tài liệu, hướng dẫn và tài nguyên trực tuyến phong phú hỗ trợ các lập trình viên học tập và giải quyết vấn đề.
+  -  Là ngôn ngữ low-level dễ dàng giao tiếp với phần cứng.
+  -  Hiệu suất cao
+  -  Cho phép can thiệp vào bộ nhớ
 - Disadvantages:
-  - Thực thi chậm hơn: Ngôn ngữ cấp cao thường chậm hơn ngôn ngữ cấp thấp vì chúng yêu cầu nhiều thời gian xử lý hơn để chuyển code thành mã máy.
-  - Kiểm soát ít hơn: Các ngôn ngữ cấp cao trừu tượng hóa các chi tiết cấp thấp và các chức năng dành riêng cho phần cứng, gây khó khăn cho việc tối ưu hóa code cho phần cứng hoặc hệ thống cụ thể.
-  - Sử dụng bộ nhớ cao hơn: Ngôn ngữ cấp cao yêu cầu nhiều bộ nhớ hơn ngôn ngữ cấp thấp vì chúng sử dụng các chức năng và cấu trúc bổ sung để cung cấp nhiều tổ chức và cấu trúc hơn cho code.
-##### 2. Why Javascript?
+  - Vấn đề bảo mật liên quan đến Pointer.
+  - Không tự động giải phóng bộ nhớ khi không dùng đến.
+  - khó bảo trì và gỡ lỗi.
+##### 2. Java
+- Java được biết đến là ngôn ngữ lập trình bậc cao, hướng đối tượng và giúp bảo mật mạnh mẽ. Java được phát triển bởi Sun Microsystems, do James Gosling khởi xướng và ra mắt năm 1995. Java hoạt động trên rất nhiều nền tảng như Windows, Mac và các phiên bản khác nhau của UNIX.
+- Advantages:
+  -  Hỗ trợ đa luồng
+  -  Bảo mật cao
+  -  Đa nền tảng
+- Disadvantages:
+  - Java phụ thuộc vào JVM để thực thi
+  - Java tiêu tốn nhiều bộ nhớ
+  - Tốc độ thực thi chậm
+##### 3. Javascript
+- Javascript được biết đến là ngôn ngữ kịch bản cho phép bạn tạo nội dung cập nhật động, điều khiển đa phương tiện, hình ảnh động và hầu hết mọi thứ khác. Javascript được phát triển bởi Brendan Eich tại Hãng truyền thông Netscape với cái tên đầu tiên Mocha, rồi sau đó đổi tên thành LiveScript, và cuối cùng thành JavaScript.
+- Advantages:
+  -  Tốc độ thực thi nhanh
+  -  Tương tích với nhiều trình duyệt
+  -  Tạo được ứng dụng trên đa nền tảng
+- Disadvantages:
+  - Bảo mật thấp: Do ở phía máy khách có thể nhìn thấy được mã nguồn nên dễ bị khai thác, chèn mã độc.
+  - 
+##### 4. Why Javascript?
 - Hiện thực code dễ dàng và nhanh chóng.
 - Có thể sử dụng để xây dựng ứng dụng da nền tảng như: Web (Front-end, Back-end), Mobile, Desktop.
 - Giúp giảm tải server.
