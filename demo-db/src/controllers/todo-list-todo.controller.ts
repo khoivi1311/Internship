@@ -42,7 +42,7 @@ export class TodoListTodoController {
     const totalData = (await this.todoListRepository.todos(id).find()).length;
     return {
       totalPages: await this.paginate.calculateTotalPages(pageSize, totalData),
-      todos: await this.todoListRepository.todos(id).find({
+      data: await this.todoListRepository.todos(id).find({
         limit: pageSize,
         skip: (pageNumber - 1) * pageSize,
       }),

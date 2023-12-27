@@ -81,7 +81,7 @@ export class TodoListController {
         pageSize,
         totalData.count,
       ),
-      todoLists: await this.todoListRepository.find({
+      data: await this.todoListRepository.find({
         limit: pageSize,
         skip: (pageNumber - 1) * pageSize,
         include: ['todos'],
