@@ -1,10 +1,5 @@
-import {
-  Count,
-  CountSchema,
-  Filter,
-  repository,
-  Where,
-} from '@loopback/repository';
+import {service} from '@loopback/core';
+import {Count, CountSchema, repository, Where} from '@loopback/repository';
 import {
   del,
   get,
@@ -15,16 +10,17 @@ import {
   post,
   requestBody,
 } from '@loopback/rest';
-import {
-  TodoList,
-  Todo,
-} from '../models';
+import {Todo, TodoList} from '../models';
 import {TodoListRepository} from '../repositories';
+import {PaginateService} from '../services/paginate.service';
 
 export class TodoListTodoController {
   constructor(
-    @repository(TodoListRepository) protected todoListRepository: TodoListRepository,
-  ) { }
+    @repository(TodoListRepository)
+    protected todoListRepository: TodoListRepository,
+    @service(PaginateService)
+    public paginate: PaginateService,
+  ) {}
 
   @get('/todo-lists/{id}/todos', {
     responses: {
@@ -40,9 +36,17 @@ export class TodoListTodoController {
   })
   async find(
     @param.path.number('id') id: number,
-    @param.query.object('filter') filter?: Filter<Todo>,
-  ): Promise<Todo[]> {
-    return this.todoListRepository.todos(id).find(filter);
+    @param.query.number('pageNumber') pageNumber: number,
+    @param.query.number('pageSize') pageSize: number,
+  ): Promise<Object> {
+    const totalData = (await this.todoListRepository.todos(id).find()).length;
+    return {
+      totalPages: await this.paginate.calculateTotalPages(pageSize, totalData),
+      todos: await this.todoListRepository.todos(id).find({
+        limit: pageSize,
+        skip: (pageNumber - 1) * pageSize,
+      }),
+    };
   }
 
   @post('/todo-lists/{id}/todos', {
@@ -61,11 +65,12 @@ export class TodoListTodoController {
           schema: getModelSchemaRef(Todo, {
             title: 'NewTodoInTodoList',
             exclude: ['id'],
-            optional: ['todoListId']
+            optional: ['todoListId'],
           }),
         },
       },
-    }) todo: Omit<Todo, 'id'>,
+    })
+    todo: Omit<Todo, 'id'>,
   ): Promise<Todo> {
     return this.todoListRepository.todos(id).create(todo);
   }

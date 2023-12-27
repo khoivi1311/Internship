@@ -1,7 +1,7 @@
+import {service} from '@loopback/core';
 import {
   Count,
   CountSchema,
-  Filter,
   FilterExcludingWhere,
   repository,
   Where,
@@ -19,11 +19,14 @@ import {
 } from '@loopback/rest';
 import {TodoList} from '../models';
 import {TodoListRepository} from '../repositories';
+import {PaginateService} from '../services/paginate.service';
 
 export class TodoListController {
   constructor(
     @repository(TodoListRepository)
     public todoListRepository: TodoListRepository,
+    @service(PaginateService)
+    public paginate: PaginateService,
   ) {}
 
   @post('/todo-lists')
@@ -69,9 +72,21 @@ export class TodoListController {
     },
   })
   async find(
-    @param.filter(TodoList) filter?: Filter<TodoList>,
-  ): Promise<TodoList[]> {
-    return this.todoListRepository.find(filter);
+    @param.query.number('pageNumber') pageNumber: number,
+    @param.query.number('pageSize') pageSize: number,
+  ): Promise<Object> {
+    const totalData = await this.todoListRepository.count();
+    return {
+      totalPages: await this.paginate.calculateTotalPages(
+        pageSize,
+        totalData.count,
+      ),
+      todoLists: await this.todoListRepository.find({
+        limit: pageSize,
+        skip: (pageNumber - 1) * pageSize,
+        include: ['todos'],
+      }),
+    };
   }
 
   @patch('/todo-lists')
