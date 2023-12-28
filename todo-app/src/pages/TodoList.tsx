@@ -1,11 +1,11 @@
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
-import TodoListTable from "./TodoListTableComponent";
+import TodoListTable from "../components/TodoListTableComponent";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Notification from "./NotificationComponent";
-import Confirmation from "./ConfirmationComponent";
-import TodoListForm from "./TodoListFormComponent";
+import Notification from "../components/NotificationComponent";
+import Confirmation from "../components/ConfirmationComponent";
+import TodoListForm from "../components/TodoListFormComponent";
 
 const TodoList = () => {
   //Todo Lists state
@@ -36,9 +36,9 @@ const TodoList = () => {
   //Fetch data todo lists
   const getTodoLists = () => {
     axios
-      .get("http://localhost:3000/todo-lists?filter[include][][relation]=todos")
+      .get("http://localhost:3000/todo-lists?pageNumber=1&pageSize=3")
       .then((res) => {
-        setTodoLists(res.data);
+        setTodoLists(res.data.data);
       });
   };
 

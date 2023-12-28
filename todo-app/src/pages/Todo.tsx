@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
-import TodoTable from "./TodoTableComponent";
+import TodoTable from "../components/TodoTableComponent";
 import axios from "axios";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
-import TodoForm from "./TodoFormComponent";
-import Notification from "./NotificationComponent";
-import Confirmation from "./ConfirmationComponent";
+import TodoForm from "../components/TodoFormComponent";
+import Notification from "../components/NotificationComponent";
+import Confirmation from "../components/ConfirmationComponent";
 import { useParams } from "react-router-dom";
+import Paginate from "../components/PaginateComponent";
 
 const Todo = () => {
   //Todos state
   const [todos, setTodos] = useState([]);
+
+  //Page state
+  const [pageNumber, setPageNumber] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   //Todo List params
   const params = useParams();
@@ -43,12 +48,22 @@ const Todo = () => {
 
   //Fetch data todo
   const getTodos = () => {
-    axios.get("http://127.0.0.1:3000/todo-lists/"+todoListId+"/todos").then((res) => {
-      setTodos(res.data);
-    });
+    axios
+      .get(
+        "http://127.0.0.1:3000/todo-lists/" +
+          todoListId +
+          "/todos?pageNumber=" +
+          pageNumber +
+          "&pageSize=5"
+      )
+      .then((res) => {
+        setTodos(res.data.data);
+        setTotalPages(res.data.totalPages);
+      });
   };
 
   useEffect(() => {
+    setPageNumber(1);
     getTodos();
   }, []);
 
@@ -78,6 +93,10 @@ const Todo = () => {
       .then((res) => {
         if (res.status === 204) {
           getTodos();
+
+          if(pageNumber > totalPages){
+            handlePageChange(pageNumber - 1);
+          }
 
           setMessageNotification("Delete todo successfully");
           setStatus("success");
@@ -202,15 +221,25 @@ const Todo = () => {
     setOpenConfirmation(false);
   };
 
+  const handlePageChange = async (pageNumber: number) => {
+    setPageNumber(pageNumber);
+    getTodos();
+  };
+
   return (
     <div style={{ marginTop: "45px" }}>
       <div
         style={{
           marginBottom: "20px",
           display: "flex",
-          justifyContent: "right",
+          justifyContent: "space-between",
         }}
       >
+        <Paginate
+          totalPages={totalPages}
+          pageNumber={pageNumber}
+          handlePageChange={handlePageChange}
+        />
         <Button
           variant="contained"
           color="success"
@@ -220,7 +249,6 @@ const Todo = () => {
         >
           Create Todo
         </Button>
-        ;
       </div>
       <div style={{ padding: "0px 15px" }}>
         <TodoTable
