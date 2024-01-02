@@ -5,10 +5,10 @@ const config = {
   name: 'db',
   connector: 'postgresql',
   url: '',
-  host: '172.17.0.2',
+  host: 'db',
   port: 5432,
   user: 'postgres',
-  password: 'password',
+  password: 'postgres',
   database: 'demodb',
 };
 
