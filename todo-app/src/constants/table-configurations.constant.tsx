@@ -5,7 +5,6 @@ import {
 } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import ViewListIcon from "@mui/icons-material/ViewList";
-import Checkbox from "@mui/material/Checkbox";
 
 //Todo List
 export const TODO_LISTS_TABLE = "todo-lists";
@@ -77,22 +76,7 @@ const TODOS_COLUMNS: GridColDef[] = [
     width: 500,
     align: "center",
     headerAlign: "center",
-  },
-  {
-    field: "completed",
-    type: "actions",
-    headerName: "Completed",
-    width: 90,
-    align: "center",
-    headerAlign: "center",
-    getActions: (params: GridRowParams) => [
-      <Checkbox
-        checked={params.row.isComplete}
-        onChange={()=>{console.log("change")}}
-        inputProps={{ "aria-label": "controlled" }}
-      />,
-    ],
-  },
+  },  
 ];
 
 export const TABLE_CONFIGURATION = {

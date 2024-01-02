@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import "./css/styles.css";
-import Header from "./components/HeaderComponent";
+import Header from "./pages/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TodoList from "./pages/TodoList";
 import Todo from "./pages/Todo";
