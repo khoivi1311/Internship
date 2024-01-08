@@ -147,6 +147,9 @@ export default function DataTable({
 
   //Update item
   const updateOnClicked = (row: any) => {
+    if (row.todos) {
+      delete row.todos;
+    }
     let data = { ...formData, ...row };
     setDataForm(data);
     setOpenForm(true);
