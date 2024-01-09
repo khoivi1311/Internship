@@ -8,16 +8,18 @@ import {
 } from "@/app/lib/constants/table-configurations.constant";
 
 export default function Home() {
-  const { columns, name, pageSize, includes } =
+  const { columns, tableName, pageSize, includes } =
     TABLE_CONFIGURATION[TODO_LISTS_TABLE];
   const fields = TODO_LIST_FORM_FIELDS;
+
   const formData = {
     id: "",
     title: "",
   };
+
   return (
     <DataTable
-      tableName={name}
+      tableName={tableName}
       pageSize={pageSize}
       includes={includes}
       fields={fields}

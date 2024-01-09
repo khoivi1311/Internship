@@ -1,15 +1,7 @@
-import {
-  GridColDef,
-  GridRowParams,
-  GridActionsCellItem,
-} from "@mui/x-data-grid";
-import Link from "next/link";
-import ViewListIcon from "@mui/icons-material/ViewList";
-
 //Todo List
 export const TODO_LISTS_TABLE = "todo-lists";
 
-const TODO_LISTS_COLUMNS: GridColDef[] = [
+const TODO_LISTS_COLUMNS = [
   {
     field: "id",
     type: "number",
@@ -17,23 +9,6 @@ const TODO_LISTS_COLUMNS: GridColDef[] = [
     width: 90,
     align: "center",
     headerAlign: "center",
-  },
-  {
-    field: "details",
-    type: "actions",
-    headerName: "Details",
-    width: 90,
-    align: "center",
-    headerAlign: "center",
-    getActions: (params: GridRowParams) => [
-      <Link href={`todos/${params.row.id}`} key={params.row.id}>
-        <GridActionsCellItem
-          icon={<ViewListIcon />}
-          label="View"
-          color="primary"
-        ></GridActionsCellItem>
-      </Link>,
-    ],
   },
   {
     field: "title",
@@ -52,7 +27,7 @@ const TODO_LISTS_INCLUDES = {
 //Todo
 export const TODOS_TABLE = "todos";
 
-const TODOS_COLUMNS: GridColDef[] = [
+const TODOS_COLUMNS = [
   {
     field: "id",
     type: "number",
@@ -82,13 +57,13 @@ const TODOS_COLUMNS: GridColDef[] = [
 export const TABLE_CONFIGURATION = {
   [TODO_LISTS_TABLE]: {
     columns: TODO_LISTS_COLUMNS,
-    name: TODO_LISTS_TABLE,
+    tableName: TODO_LISTS_TABLE,
     pageSize: 5,
     includes: TODO_LISTS_INCLUDES,
   },
   [TODOS_TABLE]: {
     columns: TODOS_COLUMNS,
-    name: TODOS_TABLE,
+    tableName: TODOS_TABLE,
     pageSize: 5,
   },
 };

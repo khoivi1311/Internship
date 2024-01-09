@@ -1,5 +1,3 @@
-"use client";
-
 import DataTable from "@/app/components/DataTableComponent";
 import { TODO_FORM_FIELDS } from "@/app/lib/constants/form-field-configurations.constant";
 import {

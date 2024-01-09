@@ -1,4 +1,5 @@
-import { Suspense, useEffect, useState } from "react";
+"use client";
+
 import { DataGrid, GridActionsCellItem, GridRowParams } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
@@ -6,13 +7,16 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import AddIcon from "@mui/icons-material/Add";
 import Checkbox from "@mui/material/Checkbox";
+import Link from "next/link";
+import ViewListIcon from "@mui/icons-material/ViewList";
 import {
-  getAll,
   deleteById,
-  patchItemById,
   createNew,
   putItemById,
+  patchItemById,
+  getAll,
 } from "@/app/lib/fetchAPI";
+import { useEffect, useState } from "react";
 import Notification from "@/app/components/NotificationComponent";
 import Confirmation from "@/app/components/ConfirmationComponent";
 import FormDialog from "@/app/components/FormDialogComponent";
@@ -87,6 +91,39 @@ export default function DataTable({
     ];
   }
 
+  if (tableName === "todo-lists") {
+    let firstItem = columns.slice(0, 1);
+    let otherItems = columns.slice(1, columns.length);
+    columns = [
+      ...firstItem,
+      {
+        field: "details",
+        type: "actions",
+        headerName: "Details",
+        width: 90,
+        align: "center",
+        headerAlign: "center",
+        getActions: (params: GridRowParams) => [
+          <Link href={`todos/${params.row.id}`} key={params.row.id}>
+            <GridActionsCellItem
+              icon={<ViewListIcon />}
+              label="View"
+              color="primary"
+            ></GridActionsCellItem>
+          </Link>,
+          <Link href={`todo2/${params.row.id}`} key={params.row.id}>
+            <GridActionsCellItem
+              icon={<ViewListIcon />}
+              label="View"
+              color="primary"
+            ></GridActionsCellItem>
+          </Link>,
+        ],
+      },
+      ...otherItems,
+    ];
+  }
+
   columns = [
     ...columns,
     {
@@ -117,25 +154,17 @@ export default function DataTable({
     },
   ];
 
+  // Handle completed
+  const handleCompletedChange = async (data: any) => {
+    data.isComplete = !data.isComplete;
+    await patchItemById(tableName, data, setData);
+  };
+
   //Delete item
   const deleteOnClicked = (item: any) => {
     setOpenConfirmation(true);
     setMessageConfirmation(item.title);
     setDeleteId(item.id);
-  };
-
-  const handleDelete = async (id: number) => {
-    await deleteById(
-      id,
-      tableName,
-      setData,
-      setMessageNotification,
-      setStatus,
-      setOpenNotification,
-      includes,
-      todoListId
-    );
-    setOpenConfirmation(false);
   };
 
   //Add new item
@@ -150,20 +179,29 @@ export default function DataTable({
     if (row.todos) {
       delete row.todos;
     }
-    let data = { ...formData, ...row };
-    setDataForm(data);
+    let dataForm = { ...formData, ...row };
+    setDataForm(dataForm);
     setOpenForm(true);
     setActionForm("Update");
   };
 
-  //Handle completed
-  const handleCompletedChange = async (data: any) => {
-    data.isComplete = !data.isComplete;
-    await patchItemById(tableName, data, setData, includes);
+  //Handle delete item
+  const handleDelete = async (id: number) => {
+    await deleteById(
+      id,
+      tableName,
+      setData,
+      setMessageNotification,
+      setStatus,
+      setOpenNotification,
+      includes,
+      todoListId
+    );
+    setOpenConfirmation(false);
   };
 
   //Handle action form
-  const handleActionForm = (dataInput: any) => {
+  const handleActionForm = async (dataInput: any) => {
     if (actionForm === "Create") {
       let data = { ...dataForm, ...dataInput };
       delete data.id;

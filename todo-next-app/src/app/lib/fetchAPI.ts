@@ -12,7 +12,7 @@ import {
 
 //Get all data
 const getAll = async (tableName: string, filter?: any, id?: number) => {
-  noStore();
+  // noStore();
 
   const query = filter
     ? `?${new URLSearchParams({ filter: JSON.stringify(filter) }).toString()}`
